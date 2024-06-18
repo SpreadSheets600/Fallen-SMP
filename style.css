@@ -163,13 +163,14 @@ body {
   display: block;
 }
 
-.mobile_navbar .icon {
+.mobile_navbar .mobile_icon {
   background-color: #00000044;
   display: block;
   position: absolute;
   right: 0;
   top: 0;
-  padding: 16px;
+  padding : 1rem;
+  padding-right: 6rem;
 }
 
 .mobile_navbar_logo_img_a {
@@ -705,6 +706,7 @@ body {
   .main5_admins_div {
     flex-direction: column;
     min-height: 0;
+    width: auto;
   }
   .main5_admins_description_div {
     max-width: 100%;
@@ -713,8 +715,8 @@ body {
   .main4_dc_div {
     flex-direction: column;
   }
-  .main4_dc_widget {
-    height: 20rem;
+  .main4_img {
+    height: auto;
     width: 100%;
   }
   .main3_join_div {

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fallen SMP</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <nav class="desktop_navbar">
+      <a href="#"
+        ><img class="desktop_navbar_logo_img" src="assets/logo.png" alt="logo"
+      /></a>
+      <a href="#features" class="desktop_navbar_link scroll">Features</a>
+      <a href="#discord" class="desktop_navbar_link scroll">Community</a>
+      <a href="#about" class="desktop_navbar_link scroll">About Us</a>
+      <a href="#" class="desktop_navbar_link">Wiki ( SOON )</a>
+      <div class="desktop_navbar_link2_div">
+        <a href="#join" class="desktop_navbar_link2 scroll">Join NOW</a>
+      </div>
+    </nav>
+    <div class="mobile_navbar">
+      <a href="#" class="mobile_navbar_logo_img_a"
+        ><img class="mobile_navbar_logo_img" src="assets/logo.png" alt="logo"
+      /></a>
+      <div id="mobile_navbar_links">
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#features"
+          >Features</a
+        >
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#discord"
+          >Community</a
+        >
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#about"
+          >About Us</a
+        >
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#join"
+          >Join Us</a
+        >
+        <a
+          class="mobile_navbar_link"
+          onclick="mobile_navbar_link_hider()"
+          href="#"
+          >Wiki ( SOON )</a
+        >
+      </div>
+      <div class="icon" onclick="mobile_navbar_link_hider()">
+        <i class="fa fa-bars"></i>
+      </div>
+      <script>
+        function mobile_navbar_link_hider() {
+          var x = document.getElementById("mobile_navbar_links");
+          if (x.style.display === "flex") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "flex";
+          }
+        }
+      </script>
+    </div>
+    <div class="mainflex">
+      <div class="main1">
+        <a class="main1_logo_a" href="#">
+          <img class="main1_logo" src="assets/big_logo.png" alt="logo" />
+        </a>
+        <div class="main1_description">
+          <a>Uncharted Territory<br />Experience Like</a>
+          <a class="main1_actcent">Never Before</a><a></a>
+        </div>
+        <div class="main1_ipcopier_div">
+          <button class="main1_ipcopier" onclick="copyText()" type="button">
+            <span class="main1_ipcopier_text1">Comming Soon</span>
+            <br />
+            <span class="main1_ipcopier_text2"></span>
+          </button>
+          <!-- <script>
+            function copyText() {
+              navigator.clipboard.writeText("play.example.com");
+            }
+            $(document).ready(function () {
+              $(".main1_ipcopier").click(function () {
+                var popup = $("<div>", { class: "main1_popup" }).append(
+                  $('<h3 class="copy_confirm">').text("Copied IP to clipboard")
+                );
+                $(this).after(popup);
+                setTimeout(function () {
+                  popup.remove();
+                }, 1000);
+              });
+            });
+          </script> -->
+        </div>
+        <a href="#more" class="scroll">
+          <img
+            alt="downarrow"
+            class="main1_downarrow"
+            src="assets/downarrow.png"
+          />
+        </a>
+        <script>
+          const scrollLinks = document.querySelectorAll(".scroll");
+          scrollLinks.forEach(function (link) {
+            link.addEventListener("click", function (event) {
+              event.preventDefault();
+              const target = document.querySelector(link.getAttribute("href"));
+              const offsetTop = target.offsetTop;
+              window.scrollTo({
+                top: offsetTop,
+                behavior: "smooth",
+              });
+            });
+          });
+        </script>
+      </div>
+      <div id="features"></div>
+      <div class="main2">
+        <a class="headline">Features</a>
+        <div class="main2_features_div">
+          <div class="main2_feature">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="assets/gems.jpg"
+            />
+            <a class="main2_feature_headline">Custom Currency</a>
+            <a class="main2_feature_text"
+              >Fallen SMP's Unique Currency : Gems</a
+            >
+          </div>
+          <div class="main2_feature">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="assets/items.jpg"
+            />
+            <a class="main2_feature_headline">Custom Items</a>
+            <a class="main2_feature_text"
+              >Fallen SMP Features Amazing Custom Items</a
+            >
+          </div>
+          <div class="main2_feature">
+            <img
+              class="main2_feature_img"
+              alt="Feature Image"
+              src="assets/drops.jpg"
+            />
+            <a class="main2_feature_headline">Custom Mob Drops</a>
+            <a class="main2_feature_text"
+              >Fallen SMP Enhances The Experience With Custom Mob Drops</a
+            >
+          </div>
+          <div class="main2_feature">
+            <img
+              class="main2_feature_img_soon"
+              alt="Feature Image"
+              src="assets/bg.png"
+            />
+            <a class="main2_feature_headline">Comming Soon</a>
+            <a class="main2_feature_text_soon"> Guild System </a>
+          </div>
+          <div class="main2_feature">
+            <img
+              class="main2_feature_img_soon"
+              alt="Feature Image"
+              src="assets/bg.png"
+            />
+            <a class="main2_feature_headline">Coming Soon</a>
+            <a class="main2_feature_text_soon"> Dungens & Gatcha </a>
+          </div>
+        </div>
+      </div>
+      <div id="discord"></div>
+      <div class="main4">
+        <a class="headline">Have Queries ?</a>
+        <div class="main4_dc_div">
+          <iframe
+            class="main4_dc_widget"
+            src="https://discord.com/widget?id=1220225199736094780&theme=dark"
+            width="350"
+            height="500"
+            allowtransparency="true"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+          ></iframe>
+          <div class="main4_dc_description_div">
+            <a class="main4_dc_description_title">Join Discord Server</a>
+            <a class="main4_dc_description">
+              ・Meet Other Players <br />
+              ・Give Feedback <br />
+              ・Ask Questions <br />
+              ・Get Updates <br /><br />
+              &amp; More
+            </a>
+            <a href="https://discord.gg/WgJdHTMjgD" class="main4_dc_button_a">
+              <div class="main4_dc_button">Join</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="about"></div>
+      <div class="main5">
+        <a class="headline">Team Members</a>
+        <div class="main5_admin_div">
+          <div class="main5_admins_div main5_admins_dev_type2">
+            <img
+              class="main5_admins_img"
+              alt="admin member img"
+              src="assets/fallen.jpg"
+            />
+            <div class="main5_admins_description_div">
+              <a
+                class="main5_admins_description_rank main5_admins_description_rank_owner"
+                >OWNER &star;
+              </a>
+              <a
+                class="main5_admins_description_title"
+                href="https://example.com"
+                >FALLEN</a
+              >
+              <a class="main5_admins_description"
+                >Owner, Contributor And Admin
+              </a>
+              <div class="socials">
+                <a href="https://facebook.com"></a>
+                <a href="https://twitter.com"></a>
+                <a href="https://instagram.com"></a>
+              </div>
+            </div>
+          </div>
+          <div class="main5_admins_div main5_admins_dev_type1">
+            <img
+              class="main5_admins_img"
+              alt="admin member img"
+              src="assets/anos.gif"
+            />
+            <div class="main5_admins_description_div">
+              <a
+                class="main5_admins_description_rank main5_admins_description_rank_admin"
+                >HEAD ADMIN
+                <span class="material-symbols-outlined"> shield_person </span>
+              </a>
+              <a
+                class="main5_admins_description_title"
+                href="https://example.com"
+                >Rudro</a
+              >
+              <a class="main5_admins_description"
+                >Plugin Dev, Admin And Maintainer</a
+              >
+              <div class="socials">
+                <a href="https://facebook.com"></a>
+                <a href="https://twitter.com"></a>
+                <a href="https://instagram.com"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main5_supporter_div">
+          <div class="main5_supporters_div">
+            <img
+              class="main5_supporters_img"
+              alt="supporters member img"
+              src="assets/superrr.webp"
+            />
+            <div class="main5_supporters_description_div">
+              <a
+                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
+                >ADMIN
+                <span class="material-symbols-outlined">
+                  admin_panel_settings
+                </span></a
+              >
+              <a class="main5_supporters_description_title">Superrr</a>
+              <a class="main5_supporters_description"
+                >Builder, Admin And Maintainer</a
+              >
+              <div class="socials">
+                <a href="https://facebook.com"></a>
+                <a href="https://twitter.com"></a>
+                <a href="https://instagram.com"></a>
+              </div>
+            </div>
+          </div>
+          <div class="main5_supporters_div">
+            <img
+              class="main5_supporters_img"
+              alt="supporters member img"
+              src="assets/leaf.webp"
+            />
+            <div class="main5_supporters_description_div">
+              <a
+                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
+                >ADMIN
+                <span class="material-symbols-outlined">
+                  admin_panel_settings
+                </span></a
+              >
+              <a class="main5_supporters_description_title">Leaf</a>
+              <a class="main5_supporters_description"
+                >Builder, Admin And Maintainer</a
+              >
+              <div class="socials">
+                <a href="https://facebook.com"></a>
+                <a href="https://twitter.com"></a>
+                <a href="https://instagram.com"></a>
+              </div>
+            </div>
+          </div>
+          <div class="main5_supporters_div">
+            <img
+              class="main5_supporters_img"
+              alt="supporters member img"
+              src="assets/soham.webp"
+            />
+            <div class="main5_supporters_description_div">
+              <a
+                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
+                >ADMIN
+                <span class="material-symbols-outlined">
+                  admin_panel_settings
+                </span></a
+              >
+              <a class="main5_supporters_description_title">SOHAM</a>
+              <a class="main5_supporters_description"
+                >Developer, Admin & Builder</a
+              >
+              <div class="socials">
+                <a href="https://facebook.com"></a>
+                <a href="https://twitter.com"></a>
+                <a href="https://instagram.com"></a>
+              </div>
+            </div>
+          </div>
+          <div class="main5_supporters_div">
+            <img
+              class="main5_supporters_img"
+              alt="supporters member img"
+              src="assets/vampy.webp"
+            />
+            <div class="main5_supporters_description_div">
+              <a
+                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
+                >ADMIN
+                <span class="material-symbols-outlined">
+                  admin_panel_settings
+                </span></a
+              >
+              <a class="main5_supporters_description_title">Vampy</a>
+              <a class="main5_supporters_description"
+                >Overwatcher, Admin And Maintainer</a
+              >
+              <div class="socials">
+                <a href="https://facebook.com"></a>
+                <a href="https://twitter.com"></a>
+                <a href="https://instagram.com"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="join"></div>
+      <div class="main3">
+        <a class="headline">How To Join ?</a>
+        <div class="main3_join_div_div">
+          <div class="main3_join_div">
+            <a class="main3_join_title">Java</a>
+            <div class="main3_join_content_div">
+              SOON
+              <!-- <div class="main3_join_categories">
+                <a>IP:</a>
+                <a>Version:</a>
+              </div>
+              <div class="main3_join_values">
+                <a>play.example.com</a>
+                <a>1.20.1</a>
+              </div> -->
+            </div>
+          </div>
+          <div class="main3_join_div">
+            <a class="main3_join_title">Bedrock</a>
+            <div class="main3_join_content_div">
+              SOON
+              <!-- <div class="main3_join_categories">
+                <a>IP:</a>
+                <a>Port:</a>
+              </div>
+              <div class="main3_join_values">
+                <a>be.example.com</a>
+                <a>69420</a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="copyright_div">
+      <a href="https://github.com/spreadsheets600" class="copyright"
+        >Made By SOHAM With ❤ | &copy; 2024
+      </a>
+    </footer>
+  </body>
+</html>

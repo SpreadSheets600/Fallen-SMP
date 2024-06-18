@@ -393,11 +393,6 @@ body {
   align-items: center;
 }
 
-.main4_dc_widget {
-  border-radius: var(--roundness);
-  border: 0;
-}
-
 .main4_dc_div {
   margin: 2rem;
   display: flex;
@@ -407,13 +402,22 @@ body {
   max-width: 48rem;
 }
 
+.main4_img {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--roundness);
+}
+
 .main4_dc_description_div {
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Center vertically */
+  margin-left: 1rem; /* Add space between image and text */
 }
 
 .main4_dc_description_title {
-  margin: 2rem;
+  margin-top: 2rem; /* Adjust margin as needed */
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
@@ -447,6 +451,7 @@ body {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
 
 .main5 {
   background-color: var(--background2);

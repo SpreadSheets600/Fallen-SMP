@@ -21,6 +21,43 @@
     />
   </head>
   <body>
+    <!-- Modal Popup -->
+    <div id="modalPopup" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p></p>
+        <br>
+        <h2 class="popup_heading">BETA TESTING IS LIVE NOW</h2>
+        <p>
+          Fallen SMP Is Now In Beta Phase. You Can Join The Server And
+          Experience It Before Launch. Please Reposrt Issues And Bugs In Discord
+          Server.
+          <br />
+          <br />
+        </p>
+        <div class="popup_div">
+          <a href="https://discord.gg/WgJdHTMjgD" class="popup_button">
+            Join Now</a
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      var modal = document.getElementById("modalPopup");
+      var closeBtn = document.getElementsByClassName("close")[0];
+      window.onload = function () {
+        modal.style.display = "block";
+      };
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <nav class="desktop_navbar">
       <a href="#"

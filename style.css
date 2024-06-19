@@ -38,6 +38,43 @@ body {
   margin-top: -5rem;
 }
 
+/* Modal Popup */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: var(--background2);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid var(--accent1);
+  border-radius: var(--roundness);
+  width: 30%;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--accent1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .banner {
   display: flex;
   position: fixed;
@@ -169,7 +206,7 @@ body {
   position: absolute;
   right: 0;
   top: 0;
-  padding : 1rem;
+  padding: 1rem;
   padding-right: 6rem;
 }
 
@@ -452,6 +489,35 @@ body {
   padding-right: 1.5rem;
 }
 
+.popup_heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+
+}
+
+.popup_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup_button {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  border: solid var(--accent1) 1px;
+  border-radius: var(--roundness);
+  margin-bottom: 1.5rem;
+  transition: all 0.5s;
+}
+.popup_button:hover {
+  border: solid 1px var(--accent2);
+  background-color: var(--accent2);
+  transform: scale(1.05);
+}
 
 .main5 {
   background-color: var(--background2);
@@ -563,7 +629,7 @@ body {
   display: flex;
   width: 100%;
   padding-top: 2rem;
-  margin: 1rem ;
+  margin: 1rem;
   flex-direction: column;
 }
 .main5_supporters_description_rank {

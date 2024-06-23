@@ -21,7 +21,34 @@
     />
   </head>
   <body>
-    <div id="modalPopup" class="modal">
+    <!-- FireBase SDK -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+      import { initializeApp } from "firebase/app";
+      import { getPerformance } from "firebase/performance";  
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCF6LLa_JIiVvYxmM1026wQouwhvHUbjGc",
+        authDomain: "ga-pc-1e736.firebaseapp.com",
+        projectId: "ga-pc-1e736",
+        storageBucket: "ga-pc-1e736.appspot.com",
+        messagingSenderId: "39302039192",
+        appId: "1:39302039192:web:5359f44894840bb855b2ed",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const perf = getPerformance(app);
+    </script>
+
+    <!-- Modal Popup -->
+    <!-- <div id="modalPopup" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
         <p></p>
@@ -38,7 +65,8 @@
           >
         </div>
       </div>
-    </div>
+    </div> -->
+
     <script>
       var modal = document.getElementById("modalPopup");
       var closeBtn = document.getElementsByClassName("close")[0];
@@ -56,6 +84,9 @@
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Navbar Dekstop -->
+
     <nav class="desktop_navbar">
       <a href="#"
         ><img class="desktop_navbar_logo_img" src="assets/logo.png" alt="logo"
@@ -68,6 +99,9 @@
         <a href="#join" class="desktop_navbar_link2 scroll">Join NOW</a>
       </div>
     </nav>
+
+    <!-- Mobile Navbar -->
+
     <div class="mobile_navbar">
       <a href="#" class="mobile_navbar_logo_img_a"
         ><img class="mobile_navbar_logo_img" src="assets/logo.png" alt="logo"
@@ -107,6 +141,7 @@
       <div class="mobile_icon" onclick="mobile_navbar_link_hider()">
         <i class="fa fa-bars"></i>
       </div>
+
       <script>
         function mobile_navbar_link_hider() {
           var x = document.getElementById("mobile_navbar_links");
@@ -156,6 +191,7 @@
             src="assets/downarrow.png"
           />
         </a>
+
         <script>
           document.addEventListener("DOMContentLoaded", function () {
             const scrollLinks = document.querySelectorAll(".scroll");
@@ -188,9 +224,7 @@
               src="assets/gems.jpg"
             />
             <a class="main2_feature_headline">Custom Currency</a>
-            <a class="main2_feature_text"
-              >Fallen SMP's Unique Currency : Gems</a
-            >
+            <a class="main2_feature_text">Fallen SMP H</a>
           </div>
           <div class="main2_feature">
             <img
@@ -422,7 +456,12 @@
             <a class="main3_join_title">Java</a>
             <div class="main3_join_content_div">
               <div class="main3_join_categories">
+                <a>IP </a>
+                <a>Version </a>
+              </div>
+              <div class="main3_join_values">
                 <a>play.fallensmp.xyz</a>
+                <a>1.8.1 - 1.20.6</a>
               </div>
             </div>
           </div>

@@ -681,7 +681,7 @@ body {
 .main3_join_div {
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 25rem;
   height: 8rem;
   background-color: var(--background2);
   border-radius: var(--roundness);
@@ -703,6 +703,7 @@ body {
   display: flex;
   flex-direction: row;
   background-color: var(--background1);
+  width: 20rem;
   height: 100%;
   border-radius: var(--roundness);
   align-items: center;
@@ -712,6 +713,7 @@ body {
 .main3_join_categories {
   display: flex;
   flex-direction: column;
+  width: 20rem;
   text-align: right;
   font-size: 1.4rem;
   line-height: 1.5;
@@ -723,6 +725,7 @@ body {
   flex-direction: column;
   text-align: left;
   font-size: 1.4rem;
+  width: 20rem;
   line-height: 1.5;
   border-left: 3px solid var(--background2);
   padding-left: 0.75rem;

@@ -682,7 +682,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 25rem;
-  height: 8rem;
+  height: 10rem;
   background-color: var(--background2);
   border-radius: var(--roundness);
   margin: 1rem;
@@ -703,7 +703,7 @@ body {
   display: flex;
   flex-direction: row;
   background-color: var(--background1);
-  width: 20rem;
+  width: 25rem;
   height: 100%;
   border-radius: var(--roundness);
   align-items: center;
@@ -713,12 +713,12 @@ body {
 .main3_join_categories {
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 10rem;
   text-align: right;
   font-size: 1.4rem;
   line-height: 1.5;
   border-right: 3px solid var(--background2);
-  padding-right: 0.75rem;
+  padding: 1rem;
 }
 .main3_join_values {
   display: flex;
@@ -728,7 +728,7 @@ body {
   width: 20rem;
   line-height: 1.5;
   border-left: 3px solid var(--background2);
-  padding-left: 0.75rem;
+  padding: 1rem;
 }
 
 /* Copyright Text */

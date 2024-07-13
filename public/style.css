@@ -494,7 +494,6 @@ body {
   font-size: 2rem;
   font-weight: 700;
   margin-top: 1rem;
-
 }
 
 .popup_div {
@@ -731,6 +730,43 @@ body {
   padding: 1rem;
 }
 
+.fillform_main3_join_div {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  height: 10rem;
+  background-color: var(--background2);
+  border-radius: var(--roundness);
+  margin: 1rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.fillform_main3_join_content_div {
+  display: flex;
+  background-color: var(--background1);
+  width: 25rem;
+  height: 100%;
+  border-radius: var(--roundness);
+  align-items: center;
+  justify-content: center;
+}
+
+.fillform_nextButton {
+  border: 2px solid #02db02;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: auto;
+  transition: 200ms;
+  width: 10rem;
+}
+
+.fillform_nextButton:hover {
+  background-color: #02db02;
+}
+
 /* Copyright Text */
 
 .copyright {
@@ -744,6 +780,121 @@ body {
   padding: 16px;
   width: auto;
   background-color: #000;
+}
+
+#wl-form {
+  position: fixed;
+
+  background-color: #212529;
+  top: 50%;
+  left: 50%;
+  border-radius: 20px;
+  box-shadow: 0 0 100px 20px black;
+  transform: translate(-50%, -50%);
+  padding: 50px;
+  padding-top: 0;
+  width: 40vw;
+  font-size: 25px;
+}
+
+#wl-form h2 {
+  text-align: center;
+}
+
+.backarrow {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  cursor: pointer;
+}
+
+.closeform {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  cursor: pointer;
+}
+
+.nextButton {
+  border: 2px solid #02db02;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  margin-top: 50px;
+  transition: 200ms;
+}
+
+.nextButton:hover {
+  background-color: #02db02;
+}
+
+.label-accept {
+  font-size: 16px;
+}
+
+.rulesShow {
+  background-color: #16191b;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 20px;
+  height: 300px;
+  overflow: scroll;
+}
+
+.rulesShow::-webkit-scrollbar {
+  display: none;
+}
+
+.sb-btn {
+  border: 2px solid #02db02;
+  border-radius: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  margin-top: 50px;
+  transition: 200ms;
+  background-color: transparent;
+  width: 100%;
+  font-size: 25px;
+}
+.sb-btn:hover {
+  background-color: #02db02;
+}
+
+.hidden {
+  display: none;
+}
+
+#wl-form form {
+  width: 80%;
+  margin: auto;
+}
+.inputfield {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.inputfield input {
+  height: 25px;
+  font-size: 20px;
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 2px solid #02db02;
+}
+
+.done {
+  position: fixed;
+  top: 100px;
+  z-index: 10;
+  right: -250px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: #0db10d;
+  text-align: center;
+  color: white;
+  transition: 200ms;
+  font-size: 24px;
 }
 
 @media only screen and (max-width: 600px) {

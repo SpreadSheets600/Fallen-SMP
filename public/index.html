@@ -8,6 +8,10 @@
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="stylesheet" href="style.css" />
     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
       href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
     />
@@ -21,18 +25,13 @@
     />
   </head>
   <body>
-    <!-- FireBase SDK -->
     <script type="module">
-      // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
 
       import { initializeApp } from "firebase/app";
-      import { getPerformance } from "firebase/performance";  
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+      import { getPerformance } from "firebase/performance";
 
-      // Your web app's Firebase configuration
       const firebaseConfig = {
         apiKey: "AIzaSyCF6LLa_JIiVvYxmM1026wQouwhvHUbjGc",
         authDomain: "ga-pc-1e736.firebaseapp.com",
@@ -42,12 +41,10 @@
         appId: "1:39302039192:web:5359f44894840bb855b2ed",
       };
 
-      // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const perf = getPerformance(app);
     </script>
 
-    <!-- Modal Popup -->
     <!-- <div id="modalPopup" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -211,6 +208,21 @@
               });
             });
           });
+
+          const hidesomething = () => {
+            document.querySelector(".hideafterNext").classList.toggle("hidden");
+            document.querySelector(".showafternext").classList.toggle("hidden");
+          };
+          const closeform = () => {
+            document.getElementById("wl-form").classList.toggle("hidden");
+          };
+          const submitform = () => {
+            document.querySelector(".done").style.translate = "-300px";
+            setTimeout(() => {
+              document.querySelector(".done").style.translate = "0px";
+            }, 3000);
+            document.getElementById("wl-form").classList.toggle("hidden");
+          };
         </script>
       </div>
       <div id="features"></div>
@@ -221,10 +233,12 @@
             <img
               class="main2_feature_img"
               alt="Feature Image"
-              src="assets/gems.jpg"
+              src="assets/roleplay.png"
             />
-            <a class="main2_feature_headline">Custom Currency</a>
-            <a class="main2_feature_text">Fallen SMP Has It's Own Custom Currency, Gems</a>
+            <a class="main2_feature_headline">Custom Roleplay</a>
+            <a class="main2_feature_text"
+              >Fallen SMP Has It's Own Custom And Unique Roleplay System</a
+            >
           </div>
           <div class="main2_feature">
             <img
@@ -234,7 +248,7 @@
             />
             <a class="main2_feature_headline">Custom Items</a>
             <a class="main2_feature_text"
-              >Fallen SMP Features Amazing Custom Items</a
+              >Fallen SMP Features Amazing Custom And Unique Items And Mobs</a
             >
           </div>
           <div class="main2_feature">
@@ -478,12 +492,155 @@
               </div>
             </div>
           </div>
+          <div class="fillform_main3_join_div">
+            <a class="main3_join_title">Get Whitelisted</a>
+            <div class="fillform_main3_join_content_div">
+              <div class="fillform_nextButton" onclick="closeform()">Click Here</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <section id="wl-form" class="hidden">
+      <iframe
+        src=""
+        name="hiddenConfirm"
+        id="hiddenConfirm"
+        title="something"
+        style="display: none"
+      ></iframe>
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdzcNzQSRTpPaPeU0QhIlfKD9r3l42EpOeHblVxrAbMf1Hy6g/formResponse"
+        method="post"
+        target="hiddenConfirm"
+        onsubmit="submitform()"
+      >
+        <h2>Whitelist Form</h2>
+        <span class="material-symbols-outlined closeform" onclick="closeform()">
+          close
+        </span>
+        <div class="hideafterNext">
+          <div class="inputfield">
+            <label>Discord Username</label>
+            <input type="text" name="entry.1002599630" required />
+          </div>
+          <div class="inputfield">
+            <label>Minecraft Username</label>
+            <input type="text" name="entry.2015713320" required />
+          </div>
+          <div class="inputfield">
+            <label>When did you start playing Minecraft</label>
+            <input type="text" name="entry.1485149881" required />
+          </div>
+          <div class="inputfield">
+            <label>Country</label>
+            <input type="text" name="entry.744226845" required />
+          </div>
+          <div class="inputfield">
+            <label>How many Hours can you play?</label>
+            <input type="text" name="entry.1979755176" required />
+            <div class="nextButton" onclick="hidesomething()">Next</div>
+          </div>
+        </div>
+        <div class="showafternext hidden">
+          <span
+            class="material-symbols-outlined backarrow"
+            onclick="hidesomething()"
+          >
+            arrow_back
+          </span>
+          <div class="rulesShow">
+            <h3>Server Rules</h3>
+            <br />
+            <ol>
+              <li>Block Placement Restrictions:</li>
+              <br />
+              <ul>
+                <li>
+                  Do not place blocks anywhere in the world. If staff or admins
+                  find unauthorized block placements, there is a high chance you
+                  will receive a temporary ban.
+                </li>
+              </ul>
+              <br /><br />
+
+              <li>Netherite Grinding Prohibition:</li>
+              <br />
+              <ul>
+                <li>
+                  Grinding for netherite is prohibited on this server.
+                  Possession of netherite or ancient debris will result in a
+                  serious ban.
+                </li>
+              </ul>
+              <br /><br />
+              <li>PvP Guidelines:</li>
+              <br />
+              <ul>
+                <li>
+                  PvP is allowed, but you are not permitted to steal items after
+                  killing someone. Killing other players will place a bounty on
+                  your head, encouraging other SMP players to hunt you and claim
+                  rewards.
+                </li>
+              </ul>
+              <br /><br />
+
+              <li>Netherite Grinding Prohibition:</li>
+              <br />
+              <ul>
+                <li>
+                  Griefing or destroying other players' houses will result in a
+                  permanent ban.
+                </li>
+              </ul>
+              <br /><br />
+              <li>Argument Resolution:</li>
+              <br />
+              <ul>
+                <li>
+                  Keep any arguments or fights within the SMP. Reach out to
+                  admins for help rather than fighting on Discord. Engaging in
+                  fights on Discord will lead to a permanent ban.
+                </li>
+              </ul>
+              <br /><br />
+
+              <li>Respect and Abuse:</li>
+              <br />
+              <ul>
+                <li>
+                  Be respectful to all players on the SMP. Abuse in the SMP chat
+                  will not be tolerated.
+                </li>
+              </ul>
+              <br />
+              <li>Base Placement:</li>
+              <ul>
+                <li>
+                  Be respectful to all players on the SMP. Abuse in the SMP chat
+                  will not be tolerated.
+                </li>
+              </ul>
+              <br /><br />
+            </ol>
+            By following these rules, you help ensure a positive and enjoyable
+            experience for everyone on the server. Thank you for your
+            cooperation!<br /><br />
+          </div>
+          <input type="checkbox" id="accept" required />
+          <label for="accept" class="label-accept"
+            >Do you agree with terms and conditions</label
+          >
+          <input type="submit" class="sb-btn" />
+        </div>
+      </form>
+    </section>
+    <div class="done">Sumbitted</div>
     <footer class="copyright_div">
       <a href="https://github.com/spreadsheets600" class="copyright"
-        >Made By SOHAM With ❤ | &copy; 2024
+        >Made By SOHAM & Leaf With ❤ | &copy; 2024
       </a>
     </footer>
   </body>

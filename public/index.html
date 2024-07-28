@@ -25,25 +25,6 @@
     />
   </head>
   <body>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-      import { getPerformance } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-performance.js";
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyCF6LLa_JIiVvYxmM1026wQouwhvHUbjGc",
-        authDomain: "ga-pc-1e736.firebaseapp.com",
-        projectId: "ga-pc-1e736",
-        storageBucket: "ga-pc-1e736.appspot.com",
-        messagingSenderId: "39302039192",
-        appId: "1:39302039192:web:5359f44894840bb855b2ed",
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      const perf = getPerformance(app);
-    </script>
-
     <!-- <div id="modalPopup" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -137,17 +118,6 @@
       <div class="mobile_icon" onclick="mobile_navbar_link_hider()">
         <i class="fa fa-bars"></i>
       </div>
-
-      <script>
-        function mobile_navbar_link_hider() {
-          var x = document.getElementById("mobile_navbar_links");
-          if (x.style.display === "flex") {
-            x.style.display = "none";
-          } else {
-            x.style.display = "flex";
-          }
-        }
-      </script>
     </div>
     <div class="mainflex">
       <div class="main1">
@@ -163,22 +133,6 @@
             <span class="main1_ipcopier_text1">play.fallensmp.xyz</span>
             <br />
           </button>
-          <script>
-            function copyText() {
-              navigator.clipboard.writeText("play.fallensmp.xyz");
-            }
-            $(document).ready(function () {
-              $(".main1_ipcopier").click(function () {
-                var popup = $("<div>", { class: "main1_popup" }).append(
-                  $('<h3 class="copy_confirm">').text("Copied IP to clipboard")
-                );
-                $(this).after(popup);
-                setTimeout(function () {
-                  popup.remove();
-                }, 1000);
-              });
-            });
-          </script>
         </div>
         <a href="#features" class="scroll">
           <img
@@ -187,42 +141,6 @@
             src="assets/downarrow.png"
           />
         </a>
-
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const scrollLinks = document.querySelectorAll(".scroll");
-            scrollLinks.forEach(function (link) {
-              link.addEventListener("click", function (event) {
-                event.preventDefault();
-                const target = document.querySelector(
-                  link.getAttribute("href")
-                );
-                if (target) {
-                  const offsetTop = target.offsetTop;
-                  window.scrollTo({
-                    top: offsetTop,
-                    behavior: "smooth",
-                  });
-                }
-              });
-            });
-          });
-
-          const hidesomething = () => {
-            document.querySelector(".hideafterNext").classList.toggle("hidden");
-            document.querySelector(".showafternext").classList.toggle("hidden");
-          };
-          const closeform = () => {
-            document.getElementById("wl-form").classList.toggle("hidden");
-          };
-          const submitform = () => {
-            document.querySelector(".done").style.translate = "-300px";
-            setTimeout(() => {
-              document.querySelector(".done").style.translate = "0px";
-            }, 3000);
-            document.getElementById("wl-form").classList.toggle("hidden");
-          };
-        </script>
       </div>
       <div id="features"></div>
       <div class="main2">
@@ -237,118 +155,6 @@
           <button class="f-nav-button next">&gt;</button>
         </div>
       </div>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const features = [
-            {
-              img: "assets/roleplay.png",
-              title: "Custom Roleplay",
-              description:
-                "Fallen SMP Has It's Own Custom And Unique Roleplay System",
-            },
-            {
-              img: "assets/items.jpg",
-              title: "Custom Items",
-              description:
-                "Fallen SMP Features Amazing Custom And Unique Items And Mobs",
-            },
-            {
-              img: "assets/drops.jpg",
-              title: "Custom Enchants",
-              description:
-                "Fallen SMP Enhances The Experience With Custom Enchants",
-            },
-            {
-              img: "assets/bg.png",
-              title: "Guilds & Hierarchy",
-              description:
-                "Fallen SMP Has It's Own Guild System With Hierarchy",
-            },
-            {
-              img: "assets/bg.png",
-              title: "Dungeons & Economy",
-              description:
-                "Fallen SMP Has It's Unique System For Mob Dungeons And Economy",
-            },
-          ];
-
-          let currentFeatureIndex = 0;
-          const carouselContainer = document.querySelector(
-            ".feature-carousel-container"
-          );
-          const prevButton = document.querySelector(
-            ".features-carousel .f-nav-button.prev"
-          );
-          const nextButton = document.querySelector(
-            ".features-carousel .f-nav-button.next"
-          );
-
-          function createFeatureCard(feature) {
-            const card = document.createElement("div");
-            card.className = "feature-card";
-            card.innerHTML = `
-      <img class="feature-img" src="${feature.img}" alt="${feature.title}">
-      <h3 class="feature-title">${feature.title}</h3>
-      <p class="feature-description">${feature.description}</p>
-    `;
-            return card;
-          }
-
-          function updateFeatureCards() {
-            carouselContainer.innerHTML = "";
-            const prevIndex =
-              (currentFeatureIndex - 1 + features.length) % features.length;
-            const nextIndex = (currentFeatureIndex + 1) % features.length;
-
-            const prevCard = createFeatureCard(features[prevIndex]);
-            const activeCard = createFeatureCard(features[currentFeatureIndex]);
-            const nextCard = createFeatureCard(features[nextIndex]);
-
-            prevCard.classList.add("prev-card");
-            activeCard.classList.add("active-card");
-            nextCard.classList.add("next-card");
-
-            carouselContainer.appendChild(prevCard);
-            carouselContainer.appendChild(activeCard);
-            carouselContainer.appendChild(nextCard);
-          }
-
-          function moveFeatureCards(direction) {
-            const cards = carouselContainer.querySelectorAll(".feature-card");
-            cards.forEach((card) => {
-              card.style.transition = "all 0.5s ease-in-out";
-            });
-
-            if (direction === "Left") {
-              carouselContainer.classList.add("move-left");
-            } else {
-              carouselContainer.classList.add("move-right");
-            }
-
-            setTimeout(() => {
-              if (direction === "Left") {
-                currentFeatureIndex =
-                  (currentFeatureIndex + 1) % features.length;
-              } else {
-                currentFeatureIndex =
-                  (currentFeatureIndex - 1 + features.length) % features.length;
-              }
-
-              updateFeatureCards();
-              carouselContainer.classList.remove("move-left", "move-right");
-
-              cards.forEach((card) => {
-                card.style.transition = "none";
-              });
-            }, 500);
-          }
-
-          prevButton.addEventListener("click", () => moveFeatureCards("Right"));
-          nextButton.addEventListener("click", () => moveFeatureCards("Left"));
-
-          updateFeatureCards();
-        });
-      </script>
       <div id="discord"></div>
       <div class="main4">
         <a class="headline">Have Queries ?</a>
@@ -363,7 +169,7 @@
               ・Get Updates <br /><br />
               &amp; More
             </a>
-            <a href="https://discord.gg/WgJdHTMjgD" class="main4_dc_button_a">
+            <a href="https://discord.gg/qupixplay" class="main4_dc_button_a">
               <div class="main4_dc_button">Join</div>
             </a>
           </div>
@@ -419,139 +225,12 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const teamMembers = [
-          {
-            img: "assets/fallen.jpg",
-            rank: "OWNER",
-            name: "FALLEN",
-            description: "Owner, Contributor And Admin",
-            rankClass: "owner",
-          },
-          {
-            img: "assets/vampy.webp",
-            rank: "CO OWNER",
-            name: "VAMPY",
-            description: "Co Owner, Superviser And Admin",
-            rankClass: "owner",
-          },
-          {
-            img: "assets/leaf.webp",
-            rank: "ADMIN",
-            name: "LEAF",
-            description: "Admin, Developer And Contributor",
-            rankClass: "admin",
-          },
-          {
-            img: "assets/anos.gif",
-            rank: "ADMIN",
-            name: "ANOS",
-            description: "Admin, Developer And Contributor",
-            rankClass: "admin",
-          },
-          {
-            img: "assets/superrr.webp",
-            rank: "ADMIN",
-            name: "Superrr",
-            description: "Admin, Developer And Contributor",
-            rankClass: "admin",
-          },
-          {
-            img: "assets/soham.webp",
-            rank: "ADMIN",
-            name: "SOHAM",
-            description: "Admin, Developer And Contributor",
-            rankClass: "admin",
-          },
-        ];
-
-        let currentMemberIndex = 0;
-        const carouselContainer = document.querySelector(".carousel-container");
-        const prevButton = document.querySelector(".nav-button.prev");
-        const nextButton = document.querySelector(".nav-button.next");
-
-        function createCard(member) {
-          const card = document.createElement("div");
-          card.className = "team-member-card";
-          card.innerHTML = `
-      <div class="card-inner">
-        <div class="card-front">
-          <img class="team-member-img" alt="${member.name}" src="${member.img}" />
-          <div class="team-member-info">
-            <span class="team-member-rank ${member.rankClass}">${member.rank}</span>
-            <h3 class="team-member-name">${member.name}</h3>
-          </div>
-        </div>
-        <div class="card-back">
-          <p class="team-member-description">${member.description}</p>
-        </div>
-      </div>
-    `;
-          return card;
-        }
-
-        function updateCards() {
-          carouselContainer.innerHTML = "";
-          const prevIndex =
-            (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
-          const nextIndex = (currentMemberIndex + 1) % teamMembers.length;
-
-          const prevCard = createCard(teamMembers[prevIndex]);
-          const activeCard = createCard(teamMembers[currentMemberIndex]);
-          const nextCard = createCard(teamMembers[nextIndex]);
-
-          prevCard.classList.add("prev-card");
-          activeCard.classList.add("active-card");
-          nextCard.classList.add("next-card");
-
-          carouselContainer.appendChild(prevCard);
-          carouselContainer.appendChild(activeCard);
-          carouselContainer.appendChild(nextCard);
-        }
-
-        function moveCards(direction) {
-          const cards = carouselContainer.querySelectorAll(".team-member-card");
-          cards.forEach((card) => {
-            card.style.transition = "all 0.5s ease-in-out";
-          });
-
-          if (direction === "Left") {
-            carouselContainer.classList.add("move-left");
-          } else {
-            carouselContainer.classList.add("move-right");
-          }
-
-          setTimeout(() => {
-            if (direction === "Left") {
-              currentMemberIndex =
-                (currentMemberIndex + 1) % teamMembers.length;
-            } else {
-              currentMemberIndex =
-                (currentMemberIndex - 1 + teamMembers.length) %
-                teamMembers.length;
-            }
-
-            updateCards();
-            carouselContainer.classList.remove("move-left", "move-right");
-
-            cards.forEach((card) => {
-              card.style.transition = "none";
-            });
-          }, 500);
-        }
-
-        prevButton.addEventListener("click", () => moveCards("Right"));
-        nextButton.addEventListener("click", () => moveCards("Left"));
-
-        updateCards();
-      });
-    </script>
     <footer class="copyright_div">
       <a href="https://github.com/spreadsheets600" class="copyright"
         >Made By SOHAM & Leaf With ❤ | &copy; 2024
       </a>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

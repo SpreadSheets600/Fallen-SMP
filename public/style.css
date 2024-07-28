@@ -393,7 +393,6 @@ body {
   background-color: #00000099;
   transform: scale(1.05);
 } */
- 
 
 .features-carousel {
   display: flex;
@@ -403,7 +402,6 @@ body {
   max-width: 1400px;
   margin: 2rem auto;
   position: relative;
-  overflow: visible;
 }
 
 .feature-carousel-container {
@@ -424,39 +422,42 @@ body {
   align-items: center;
   text-align: center;
   width: 100%;
-  padding-bottom: 2rem;
-  max-width: 400px;
+  max-width: 350px;
+  padding: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   transition: all 0.5s ease;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .feature-card.active-card {
   z-index: 3;
   opacity: 1;
+  visibility: visible;
   transform: translate(-50%, -50%) scale(1);
 }
 
 .feature-card.prev-card {
   z-index: 2;
-  opacity: 0.5;
-  filter: brightness(0.8);
+  opacity: 0.7;
+  visibility: visible;
   transform: translate(-150%, -50%) scale(0.9);
 }
 
 .feature-card.next-card {
   z-index: 2;
-  opacity: 0.5;
-  filter: brightness(0.8);
+  opacity: 0.7;
+  visibility: visible;
   transform: translate(50%, -50%) scale(0.9);
 }
 
 .feature-carousel-container.move-left .active-card {
   transform: translate(-150%, -50%) scale(0.9);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .feature-carousel-container.move-left .next-card {
@@ -465,13 +466,13 @@ body {
 }
 
 .feature-carousel-container.move-left .prev-card {
-  transform: translate(50%, -50%) scale(0.9);
-  opacity: 0.5;
+  transform: translate(-250%, -50%) scale(0.8);
+  opacity: 0;
 }
 
 .feature-carousel-container.move-right .active-card {
   transform: translate(50%, -50%) scale(0.9);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .feature-carousel-container.move-right .prev-card {
@@ -480,10 +481,26 @@ body {
 }
 
 .feature-carousel-container.move-right .next-card {
-  transform: translate(-150%, -50%) scale(0.9);
-  opacity: 0.5;
+  transform: translate(150%, -50%) scale(0.8);
+  opacity: 0;
 }
 
+.f-nav-button {
+  background-color: var(--accent1);
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: var(--roundness);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 4;
+}
+
+.f-nav-button:hover {
+  background-color: var(--accent2);
+  transform: scale(1.05);
+}
 .feature-img {
   border-radius: var(--roundness);
   max-width: 100%;
@@ -706,7 +723,6 @@ body {
   max-width: 1400px;
   margin: 2rem auto;
   position: relative;
-  overflow: visible;
 }
 
 .carousel-container {
@@ -735,6 +751,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .team-member-card.active-card {
@@ -934,37 +952,37 @@ body {
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 50%;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out
 }
 
 .team-member-card.active-card {
   z-index: 3;
   opacity: 1;
+  visibility: visible;
   transform: translate(-50%, -50%) scale(1);
-  left: 50%;
 }
 
 .team-member-card.prev-card {
   z-index: 2;
-  opacity: 0.5;
+  opacity: 0.7;
+  visibility: visible;
   transform: translate(-150%, -50%) scale(0.9);
-  left: 50%;
 }
 
 .team-member-card.next-card {
   z-index: 2;
-  opacity: 0.5;
+  opacity: 0.7;
+  visibility: visible;
   transform: translate(50%, -50%) scale(0.9);
-  left: 50%;
 }
 
 .carousel-container.move-left .active-card {
   transform: translate(-150%, -50%) scale(0.9);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .carousel-container.move-left .next-card {
@@ -973,13 +991,13 @@ body {
 }
 
 .carousel-container.move-left .prev-card {
-  transform: translate(50%, -50%) scale(0.9);
-  opacity: 0.5;
+  transform: translate(-250%, -50%) scale(0.8);
+  opacity: 0;
 }
 
 .carousel-container.move-right .active-card {
   transform: translate(50%, -50%) scale(0.9);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .carousel-container.move-right .prev-card {
@@ -988,8 +1006,8 @@ body {
 }
 
 .carousel-container.move-right .next-card {
-  transform: translate(-150%, -50%) scale(0.9);
-  opacity: 0.5;
+  transform: translate(150%, -50%) scale(0.8);
+  opacity: 0;
 }
 
 .main5_admin_div {
@@ -1408,24 +1426,29 @@ body {
   .main4_dc_description_div {
     margin-left: 0;
   }
-  .main3_join_div, .fillform_main3_join_div {
+  .main3_join_div,
+  .fillform_main3_join_div {
     width: 90%;
     margin: 0.5rem auto;
   }
-  .main3_join_content_div, .fillform_main3_join_content_div {
+  .main3_join_content_div,
+  .fillform_main3_join_content_div {
     width: 100%;
   }
-  .team-carousel, .features-carousel {
+  .team-carousel,
+  .features-carousel {
     width: 90%;
   }
-  .nav-button, .f-nav-button {
+  .nav-button,
+  .f-nav-button {
     padding: 8px 12px;
     font-size: 16px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .main3_join_categories, .main3_join_values {
+  .main3_join_categories,
+  .main3_join_values {
     font-size: 1rem;
     padding: 0.5rem;
   }
@@ -1448,6 +1471,9 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-input, button, .nav-button, .f-nav-button {
+input,
+button,
+.nav-button,
+.f-nav-button {
   -webkit-tap-highlight-color: transparent;
 }

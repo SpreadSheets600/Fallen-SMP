@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Team members carousel
     const teamMembers = [
       {
-        img: "assets/fallen.jpg",
+        img: "assets/fallen.gif",
         rank: "OWNER",
         name: "FALLEN",
         description: "Owner, Contributor And Admin",
@@ -153,11 +153,11 @@ document.addEventListener("DOMContentLoaded", function () {
         img: "assets/qupix.gif",
         rank: "CO OWNER",
         name: "QUPIX",
-        description: "Co Owner, Superviser And Content Creator",
+        description: "Co Owner, Supervisor And Content Creator",
         rankClass: "owner",
       },
       {
-        img: "assets/leaf.webp",
+        img: "assets/leaf.gif",
         rank: "ADMIN",
         name: "LEAF",
         description: "Admin, Developer And Contributor",

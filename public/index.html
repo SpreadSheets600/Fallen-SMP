@@ -28,9 +28,7 @@
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
-
-      import { initializeApp } from "firebase/app";
-      import { getPerformance } from "firebase/performance";
+      import { getPerformance } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-performance.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyCF6LLa_JIiVvYxmM1026wQouwhvHUbjGc",
@@ -42,6 +40,7 @@
       };
 
       const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
       const perf = getPerformance(app);
     </script>
 
@@ -64,7 +63,7 @@
       </div>
     </div> -->
 
-    <script>
+    <!-- <script>
       var modal = document.getElementById("modalPopup");
       var closeBtn = document.getElementsByClassName("close")[0];
       window.onload = function () {
@@ -78,7 +77,7 @@
           modal.style.display = "none";
         }
       };
-    </script>
+    </script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -228,60 +227,128 @@
       <div id="features"></div>
       <div class="main2">
         <a class="headline">Features</a>
-        <div class="main2_features_div">
-          <div class="main2_feature">
-            <img
-              class="main2_feature_img"
-              alt="Feature Image"
-              src="assets/roleplay.png"
-            />
-            <a class="main2_feature_headline">Custom Roleplay</a>
-            <a class="main2_feature_text"
-              >Fallen SMP Has It's Own Custom And Unique Roleplay System</a
-            >
+        <div class="features-carousel">
+          <button class="f-nav-button prev">&lt;</button>
+          <div class="feature-carousel-container">
+            <div class="feature-card prev-card"></div>
+            <div class="feature-card active-card"></div>
+            <div class="feature-card next-card"></div>
           </div>
-          <div class="main2_feature">
-            <img
-              class="main2_feature_img"
-              alt="Feature Image"
-              src="assets/items.jpg"
-            />
-            <a class="main2_feature_headline">Custom Items</a>
-            <a class="main2_feature_text"
-              >Fallen SMP Features Amazing Custom And Unique Items And Mobs</a
-            >
-          </div>
-          <div class="main2_feature">
-            <img
-              class="main2_feature_img"
-              alt="Feature Image"
-              src="assets/drops.jpg"
-            />
-            <a class="main2_feature_headline">Custom Mob Drops</a>
-            <a class="main2_feature_text"
-              >Fallen SMP Enhances The Experience With Custom Mob Drops</a
-            >
-          </div>
-          <div class="main2_feature">
-            <img
-              class="main2_feature_img_soon"
-              alt="Feature Image"
-              src="assets/bg.png"
-            />
-            <a class="main2_feature_headline">Comming Soon</a>
-            <a class="main2_feature_text_soon"> Guild System </a>
-          </div>
-          <div class="main2_feature">
-            <img
-              class="main2_feature_img_soon"
-              alt="Feature Image"
-              src="assets/bg.png"
-            />
-            <a class="main2_feature_headline">Coming Soon</a>
-            <a class="main2_feature_text_soon"> Dungens & Gatcha </a>
-          </div>
+          <button class="f-nav-button next">&gt;</button>
         </div>
       </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const features = [
+            {
+              img: "assets/roleplay.png",
+              title: "Custom Roleplay",
+              description:
+                "Fallen SMP Has It's Own Custom And Unique Roleplay System",
+            },
+            {
+              img: "assets/items.jpg",
+              title: "Custom Items",
+              description:
+                "Fallen SMP Features Amazing Custom And Unique Items And Mobs",
+            },
+            {
+              img: "assets/drops.jpg",
+              title: "Custom Enchants",
+              description:
+                "Fallen SMP Enhances The Experience With Custom Enchants",
+            },
+            {
+              img: "assets/bg.png",
+              title: "Guilds & Hierarchy",
+              description:
+                "Fallen SMP Has It's Own Guild System With Hierarchy",
+            },
+            {
+              img: "assets/bg.png",
+              title: "Dungeons & Economy",
+              description:
+                "Fallen SMP Has It's Unique System For Mob Dungeons And Economy",
+            },
+          ];
+
+          let currentFeatureIndex = 0;
+          const carouselContainer = document.querySelector(
+            ".feature-carousel-container"
+          );
+          const prevButton = document.querySelector(
+            ".features-carousel .f-nav-button.prev"
+          );
+          const nextButton = document.querySelector(
+            ".features-carousel .f-nav-button.next"
+          );
+
+          function createFeatureCard(feature) {
+            const card = document.createElement("div");
+            card.className = "feature-card";
+            card.innerHTML = `
+      <img class="feature-img" src="${feature.img}" alt="${feature.title}">
+      <h3 class="feature-title">${feature.title}</h3>
+      <p class="feature-description">${feature.description}</p>
+    `;
+            return card;
+          }
+
+          function updateFeatureCards() {
+            carouselContainer.innerHTML = "";
+            const prevIndex =
+              (currentFeatureIndex - 1 + features.length) % features.length;
+            const nextIndex = (currentFeatureIndex + 1) % features.length;
+
+            const prevCard = createFeatureCard(features[prevIndex]);
+            const activeCard = createFeatureCard(features[currentFeatureIndex]);
+            const nextCard = createFeatureCard(features[nextIndex]);
+
+            prevCard.classList.add("prev-card");
+            activeCard.classList.add("active-card");
+            nextCard.classList.add("next-card");
+
+            carouselContainer.appendChild(prevCard);
+            carouselContainer.appendChild(activeCard);
+            carouselContainer.appendChild(nextCard);
+          }
+
+          function moveFeatureCards(direction) {
+            const cards = carouselContainer.querySelectorAll(".feature-card");
+            cards.forEach((card) => {
+              card.style.transition = "all 0.5s ease-in-out";
+            });
+
+            if (direction === "Left") {
+              carouselContainer.classList.add("move-left");
+            } else {
+              carouselContainer.classList.add("move-right");
+            }
+
+            setTimeout(() => {
+              if (direction === "Left") {
+                currentFeatureIndex =
+                  (currentFeatureIndex + 1) % features.length;
+              } else {
+                currentFeatureIndex =
+                  (currentFeatureIndex - 1 + features.length) % features.length;
+              }
+
+              updateFeatureCards();
+              carouselContainer.classList.remove("move-left", "move-right");
+
+              cards.forEach((card) => {
+                card.style.transition = "none";
+              });
+            }, 500);
+          }
+
+          prevButton.addEventListener("click", () => moveFeatureCards("Right"));
+          nextButton.addEventListener("click", () => moveFeatureCards("Left"));
+
+          updateFeatureCards();
+        });
+      </script>
       <div id="discord"></div>
       <div class="main4">
         <a class="headline">Have Queries ?</a>
@@ -305,161 +372,14 @@
       <div id="about"></div>
       <div class="main5">
         <a class="headline">Team Members</a>
-        <div class="main5_admin_div">
-          <div class="main5_admins_div main5_admins_dev_type2">
-            <img
-              class="main5_admins_img"
-              alt="admin member img"
-              src="assets/fallen.jpg"
-            />
-            <div class="main5_admins_description_div">
-              <a
-                class="main5_admins_description_rank main5_admins_description_rank_owner"
-                >OWNER &star;
-              </a>
-              <a
-                class="main5_admins_description_title"
-                href="https://example.com"
-                >FALLEN</a
-              >
-              <a class="main5_admins_description"
-                >Owner, Contributor And Admin
-              </a>
-              <div class="socials">
-                <a href="https://facebook.com"></a>
-                <a href="https://twitter.com"></a>
-                <a href="https://instagram.com"></a>
-              </div>
-            </div>
+        <div class="team-carousel">
+          <button class="nav-button prev">&lt;</button>
+          <div class="carousel-container">
+            <div class="team-member-card prev-card"></div>
+            <div class="team-member-card active-card"></div>
+            <div class="team-member-card next-card"></div>
           </div>
-          <div class="main5_admins_div main5_admins_dev_type2">
-            <img
-              class="main5_admins_img"
-              alt="admin member img"
-              src="assets/vampy.webp"
-            />
-            <div class="main5_admins_description_div">
-              <a
-                class="main5_admins_description_rank main5_admins_description_rank_owner"
-                >CO OWNER &star;
-              </a>
-              <a
-                class="main5_admins_description_title"
-                href="https://example.com"
-                >VAMPY</a
-              >
-              <a class="main5_admins_description"
-                >Co Owner, Superviser And Admin
-              </a>
-              <div class="socials">
-                <a href="https://facebook.com"></a>
-                <a href="https://twitter.com"></a>
-                <a href="https://instagram.com"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="main5_supporter_div">
-          <div class="main5_supporters_div">
-            <img
-              class="main5_supporters_img"
-              alt="supporters member img"
-              src="assets/anos.gif"
-            />
-            <div class="main5_supporters_description_div">
-              <a
-                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
-                >TEAM MEMBER
-                <span class="material-symbols-outlined">
-                  admin_panel_settings
-                </span></a
-              >
-              <a class="main5_supporters_description_title">Anos</a>
-              <a class="main5_supporters_description"
-                >Plugin Dev, Admin And Manager</a
-              >
-              <div class="socials">
-                <a href="https://facebook.com"></a>
-                <a href="https://twitter.com"></a>
-                <a href="https://instagram.com"></a>
-              </div>
-            </div>
-          </div>
-          <div class="main5_supporters_div">
-            <img
-              class="main5_supporters_img"
-              alt="supporters member img"
-              src="assets/soham.webp"
-            />
-            <div class="main5_supporters_description_div">
-              <a
-                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
-                >TEAM MEMBER
-                <span class="material-symbols-outlined">
-                  admin_panel_settings
-                </span></a
-              >
-              <a class="main5_supporters_description_title">SOHAM</a>
-              <a class="main5_supporters_description"
-                >Developer, Admin & Builder</a
-              >
-              <div class="socials">
-                <a href="https://facebook.com"></a>
-                <a href="https://twitter.com"></a>
-                <a href="https://instagram.com"></a>
-              </div>
-            </div>
-          </div>
-          <div class="main5_supporters_div">
-            <img
-              class="main5_supporters_img"
-              alt="supporters member img"
-              src="assets/superrr.webp"
-            />
-            <div class="main5_supporters_description_div">
-              <a
-                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
-                >TEAM MEMBER
-                <span class="material-symbols-outlined">
-                  admin_panel_settings
-                </span></a
-              >
-              <a class="main5_supporters_description_title">Superrr</a>
-              <a class="main5_supporters_description"
-                >Builder, Admin And Manager</a
-              >
-              <div class="socials">
-                <a href="https://facebook.com"></a>
-                <a href="https://twitter.com"></a>
-                <a href="https://instagram.com"></a>
-              </div>
-            </div>
-          </div>
-          <div class="main5_supporters_div">
-            <img
-              class="main5_supporters_img"
-              alt="supporters member img"
-              src="assets/leaf.webp"
-            />
-            <div class="main5_supporters_description_div">
-              <a
-                class="main5_supporters_description_rank main5_supporters_description_rank_supporter"
-                >TEAM MEMBER
-                <span class="material-symbols-outlined">
-                  admin_panel_settings
-                </span></a
-              >
-              <a class="main5_supporters_description_title">Leaf</a>
-              <a class="main5_supporters_description"
-                >Builder, Admin And Manager</a
-              >
-              <div class="socials">
-                <a href="https://facebook.com"></a>
-                <a href="https://twitter.com"></a>
-                <a href="https://instagram.com"></a>
-              </div>
-            </div>
-          </div>
+          <button class="nav-button next">&gt;</button>
         </div>
       </div>
       <div id="join"></div>
@@ -475,7 +395,7 @@
               </div>
               <div class="main3_join_values">
                 <a>play.fallensmp.xyz</a>
-                <a>1.8.1 - 1.20.6</a>
+                <a>1.21</a>
               </div>
             </div>
           </div>
@@ -488,156 +408,146 @@
               </div>
               <div class="main3_join_values">
                 <a>play.fallensmp.xyz</a>
-                <a>35566</a>
+                <a>35564</a>
               </div>
             </div>
           </div>
           <div class="fillform_main3_join_div">
-            <a class="main3_join_title">Get Whitelisted</a>
-            <div class="fillform_main3_join_content_div">
-              <div class="fillform_nextButton" onclick="closeform()">Click Here</div>
-            </div>
+            <a class="main3_join_title">Rules & Guide</a>
+            <div class="main3_join_content_div">Comming Soon</div>
           </div>
         </div>
       </div>
     </div>
 
-    <section id="wl-form" class="hidden">
-      <iframe
-        src=""
-        name="hiddenConfirm"
-        id="hiddenConfirm"
-        title="something"
-        style="display: none"
-      ></iframe>
-      <form
-        action="https://docs.google.com/forms/d/e/1FAIpQLSdzcNzQSRTpPaPeU0QhIlfKD9r3l42EpOeHblVxrAbMf1Hy6g/formResponse"
-        method="post"
-        target="hiddenConfirm"
-        onsubmit="submitform()"
-      >
-        <h2>Whitelist Form</h2>
-        <span class="material-symbols-outlined closeform" onclick="closeform()">
-          close
-        </span>
-        <div class="hideafterNext">
-          <div class="inputfield">
-            <label>Discord Username</label>
-            <input type="text" name="entry.1002599630" required />
-          </div>
-          <div class="inputfield">
-            <label>Minecraft Username</label>
-            <input type="text" name="entry.2015713320" required />
-          </div>
-          <div class="inputfield">
-            <label>When did you start playing Minecraft</label>
-            <input type="text" name="entry.1485149881" required />
-          </div>
-          <div class="inputfield">
-            <label>Country</label>
-            <input type="text" name="entry.744226845" required />
-          </div>
-          <div class="inputfield">
-            <label>How many Hours can you play?</label>
-            <input type="text" name="entry.1979755176" required />
-            <div class="nextButton" onclick="hidesomething()">Next</div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const teamMembers = [
+          {
+            img: "assets/fallen.jpg",
+            rank: "OWNER",
+            name: "FALLEN",
+            description: "Owner, Contributor And Admin",
+            rankClass: "owner",
+          },
+          {
+            img: "assets/vampy.webp",
+            rank: "CO OWNER",
+            name: "VAMPY",
+            description: "Co Owner, Superviser And Admin",
+            rankClass: "owner",
+          },
+          {
+            img: "assets/leaf.webp",
+            rank: "ADMIN",
+            name: "LEAF",
+            description: "Admin, Developer And Contributor",
+            rankClass: "admin",
+          },
+          {
+            img: "assets/anos.gif",
+            rank: "ADMIN",
+            name: "ANOS",
+            description: "Admin, Developer And Contributor",
+            rankClass: "admin",
+          },
+          {
+            img: "assets/superrr.webp",
+            rank: "ADMIN",
+            name: "Superrr",
+            description: "Admin, Developer And Contributor",
+            rankClass: "admin",
+          },
+          {
+            img: "assets/soham.webp",
+            rank: "ADMIN",
+            name: "SOHAM",
+            description: "Admin, Developer And Contributor",
+            rankClass: "admin",
+          },
+        ];
+
+        let currentMemberIndex = 0;
+        const carouselContainer = document.querySelector(".carousel-container");
+        const prevButton = document.querySelector(".nav-button.prev");
+        const nextButton = document.querySelector(".nav-button.next");
+
+        function createCard(member) {
+          const card = document.createElement("div");
+          card.className = "team-member-card";
+          card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front">
+          <img class="team-member-img" alt="${member.name}" src="${member.img}" />
+          <div class="team-member-info">
+            <span class="team-member-rank ${member.rankClass}">${member.rank}</span>
+            <h3 class="team-member-name">${member.name}</h3>
           </div>
         </div>
-        <div class="showafternext hidden">
-          <span
-            class="material-symbols-outlined backarrow"
-            onclick="hidesomething()"
-          >
-            arrow_back
-          </span>
-          <div class="rulesShow">
-            <h3>Server Rules</h3>
-            <br />
-            <ol>
-              <li>Block Placement Restrictions:</li>
-              <br />
-              <ul>
-                <li>
-                  Do not place blocks anywhere in the world. If staff or admins
-                  find unauthorized block placements, there is a high chance you
-                  will receive a temporary ban.
-                </li>
-              </ul>
-              <br /><br />
-
-              <li>Netherite Grinding Prohibition:</li>
-              <br />
-              <ul>
-                <li>
-                  Grinding for netherite is prohibited on this server.
-                  Possession of netherite or ancient debris will result in a
-                  serious ban.
-                </li>
-              </ul>
-              <br /><br />
-              <li>PvP Guidelines:</li>
-              <br />
-              <ul>
-                <li>
-                  PvP is allowed, but you are not permitted to steal items after
-                  killing someone. Killing other players will place a bounty on
-                  your head, encouraging other SMP players to hunt you and claim
-                  rewards.
-                </li>
-              </ul>
-              <br /><br />
-
-              <li>Netherite Grinding Prohibition:</li>
-              <br />
-              <ul>
-                <li>
-                  Griefing or destroying other players' houses will result in a
-                  permanent ban.
-                </li>
-              </ul>
-              <br /><br />
-              <li>Argument Resolution:</li>
-              <br />
-              <ul>
-                <li>
-                  Keep any arguments or fights within the SMP. Reach out to
-                  admins for help rather than fighting on Discord. Engaging in
-                  fights on Discord will lead to a permanent ban.
-                </li>
-              </ul>
-              <br /><br />
-
-              <li>Respect and Abuse:</li>
-              <br />
-              <ul>
-                <li>
-                  Be respectful to all players on the SMP. Abuse in the SMP chat
-                  will not be tolerated.
-                </li>
-              </ul>
-              <br />
-              <li>Base Placement:</li>
-              <ul>
-                <li>
-                  Be respectful to all players on the SMP. Abuse in the SMP chat
-                  will not be tolerated.
-                </li>
-              </ul>
-              <br /><br />
-            </ol>
-            By following these rules, you help ensure a positive and enjoyable
-            experience for everyone on the server. Thank you for your
-            cooperation!<br /><br />
-          </div>
-          <input type="checkbox" id="accept" required />
-          <label for="accept" class="label-accept"
-            >Do you agree with terms and conditions</label
-          >
-          <input type="submit" class="sb-btn" />
+        <div class="card-back">
+          <p class="team-member-description">${member.description}</p>
         </div>
-      </form>
-    </section>
-    <div class="done">Sumbitted</div>
+      </div>
+    `;
+          return card;
+        }
+
+        function updateCards() {
+          carouselContainer.innerHTML = "";
+          const prevIndex =
+            (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
+          const nextIndex = (currentMemberIndex + 1) % teamMembers.length;
+
+          const prevCard = createCard(teamMembers[prevIndex]);
+          const activeCard = createCard(teamMembers[currentMemberIndex]);
+          const nextCard = createCard(teamMembers[nextIndex]);
+
+          prevCard.classList.add("prev-card");
+          activeCard.classList.add("active-card");
+          nextCard.classList.add("next-card");
+
+          carouselContainer.appendChild(prevCard);
+          carouselContainer.appendChild(activeCard);
+          carouselContainer.appendChild(nextCard);
+        }
+
+        function moveCards(direction) {
+          const cards = carouselContainer.querySelectorAll(".team-member-card");
+          cards.forEach((card) => {
+            card.style.transition = "all 0.5s ease-in-out";
+          });
+
+          if (direction === "Left") {
+            carouselContainer.classList.add("move-left");
+          } else {
+            carouselContainer.classList.add("move-right");
+          }
+
+          setTimeout(() => {
+            if (direction === "Left") {
+              currentMemberIndex =
+                (currentMemberIndex + 1) % teamMembers.length;
+            } else {
+              currentMemberIndex =
+                (currentMemberIndex - 1 + teamMembers.length) %
+                teamMembers.length;
+            }
+
+            updateCards();
+            carouselContainer.classList.remove("move-left", "move-right");
+
+            cards.forEach((card) => {
+              card.style.transition = "none";
+            });
+          }, 500);
+        }
+
+        prevButton.addEventListener("click", () => moveCards("Right"));
+        nextButton.addEventListener("click", () => moveCards("Left"));
+
+        updateCards();
+      });
+    </script>
     <footer class="copyright_div">
       <a href="https://github.com/spreadsheets600" class="copyright"
         >Made By SOHAM & Leaf With ❤ | &copy; 2024

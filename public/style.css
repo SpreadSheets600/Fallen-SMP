@@ -181,16 +181,21 @@ body {
 }
 
 .mobile_navbar #mobile_navbar_links {
-  display: none;
-  margin-top: 53px;
-  flex-direction: column;
-  align-items: center;
+  background-color: var(--background2);
   width: 100%;
-  background-color: #00000011;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  z-index: 10;
 }
 
 .mobile_navbar_link {
-  padding: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--accent1);
+}
+
+.mobile_icon {
+  padding: 1rem;
 }
 
 .mobile_navbar a {
@@ -1378,69 +1383,71 @@ body {
     display: flex;
   }
   .headline {
-    font-size: 1.9rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
+    font-size: 2rem;
+    margin: 1rem;
   }
   .main1_logo {
-    max-width: 16rem;
+    max-width: 80%;
   }
   .main1_description {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
   }
   .main1_ipcopier {
-    display: none;
-  }
-  .main5_admins_img {
-    align-self: center;
-    padding-top: 1rem;
-  }
-  .main5_admin_div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    position: relative; /* Ensure the container is positioned relatively */
-  }
-
-  .main5_admins_description_div {
-    max-width: 100%;
-    padding: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
   }
   .main4_dc_div {
     flex-direction: column;
+    margin: 1rem;
   }
   .main4_img {
+    width: 100%;
     height: auto;
+  }
+  .main4_dc_description_div {
+    margin-left: 0;
+  }
+  .main3_join_div, .fillform_main3_join_div {
+    width: 90%;
+    margin: 0.5rem auto;
+  }
+  .main3_join_content_div, .fillform_main3_join_content_div {
     width: 100%;
   }
-  .main3_join_div {
-    min-width: 20rem;
-    min-height: 9rem;
+  .team-carousel, .features-carousel {
+    width: 90%;
   }
-  .main3_join_content_div {
-    padding: 1rem;
-  }
-  .main5_admins_dev_type1 {
-    padding-right: 0;
-  }
-  .main5_admins_dev_type2 {
-    padding-left: 0;
+  .nav-button, .f-nav-button {
+    padding: 8px 12px;
+    font-size: 16px;
   }
 }
-@media only screen and (max-width: 360px) {
-  .main3_join_categories {
+
+@media only screen and (max-width: 600px) {
+  .main3_join_categories, .main3_join_values {
     font-size: 1rem;
-  }
-  .main3_join_values {
-    font-size: 1rem;
-  }
-  .main3_join_div {
-    min-width: 10rem;
     padding: 0.5rem;
   }
-  .main3_join_div_div {
-    margin: 0.25rem;
+  .main4_dc_button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
   }
+  .team-member-img {
+    width: 120px;
+  }
+  .team-member-name {
+    font-size: 1.5rem;
+  }
+  .team-member-description {
+    font-size: 1rem;
+  }
+}
+
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+input, button, .nav-button, .f-nav-button {
+  -webkit-tap-highlight-color: transparent;
 }

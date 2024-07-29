@@ -237,36 +237,37 @@ body {
   align-items: center;
   align-content: center;
   justify-content: center;
-  background-image: url("assets/s1.png");
+  /* background-image: url("assets/ezgif-7-c3b8805779.mp4");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
   position: relative;
 }
 
-.main1::before {
-  content: "";
+.videocan {
   position: absolute;
-  top: 0;
-  left: 0;
   right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  top: 0;
+
+  width: 100vw;
+  /* height: 100vh; */
+  z-index: 0;
 }
 
-.main1 > * {
+.main1 > {
   position: relative;
   z-index: 2;
 }
 
 .main1_logo_a {
+  z-index: 2;
   margin-bottom: var(--nice-padding);
   cursor: default;
 }
 
 .main1_logo {
+  z-index: 2;
   display: block;
   align-self: center;
   margin-left: auto;
@@ -284,6 +285,7 @@ body {
   font-size: 3rem;
   margin-bottom: 15rem;
   margin-left: 1rem;
+  z-index: 2;
   margin-right: 1rem;
 }
 
@@ -956,7 +958,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 50%;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .team-member-card.active-card {
@@ -1280,21 +1282,24 @@ body {
 
 #wl-form {
   position: fixed;
-
-  background-color: #212529;
+  z-index: 1000;
+  background-color: var(--background2);
   top: 50%;
   left: 50%;
-  border-radius: 20px;
+  border-radius: var(--roundness);
   box-shadow: 0 0 100px 20px black;
   transform: translate(-50%, -50%);
-  padding: 50px;
-  padding-top: 0;
-  width: 40vw;
-  font-size: 25px;
+  padding: 30px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  font-size: 16px;
 }
 
 #wl-form h2 {
   text-align: center;
+  margin-top: 0;
 }
 
 .backarrow {
@@ -1333,7 +1338,7 @@ body {
   font-size: 16px;
   border-radius: 10px;
   padding: 20px;
-  height: 300px;
+  height: 500px;
   overflow: scroll;
 }
 
@@ -1361,7 +1366,7 @@ body {
 }
 
 #wl-form form {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .inputfield {

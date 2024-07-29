@@ -121,6 +121,12 @@
     </div>
     <div class="mainflex">
       <div class="main1">
+        <video class="videocan" autoplay loop muted>
+          <source
+            src="/public/assets/rain.mp4"
+            type="video/mp4"
+          />
+        </video>
         <a class="main1_logo_a" href="#">
           <img class="main1_logo" src="assets/big_logo.png" alt="logo" />
         </a>
@@ -220,11 +226,142 @@
           </div>
           <div class="fillform_main3_join_div">
             <a class="main3_join_title">Rules & Guide</a>
-            <div class="main3_join_content_div">Comming Soon</div>
+            <div class="main3_join_content_div">
+              <div class="nextButton" onclick="closeform()">Click Here</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <section id="wl-form" class="hidden">
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdzcNzQSRTpPaPeU0QhIlfKD9r3l42EpOeHblVxrAbMf1Hy6g/formResponse"
+        method="post"
+        target="hiddenConfirm"
+        onsubmit="submitform()"
+      >
+        <h2>Rules</h2>
+        <span class="material-symbols-outlined closeform" onclick="closeform()">
+          close
+        </span>
+        <!-- <div class="hideafterNext">
+          <div class="inputfield">
+            <label>Discord Username</label>
+            <input type="text" name="entry.1002599630" required />
+          </div>
+          <div class="inputfield">
+            <label>Minecraft Username</label>
+            <input type="text" name="entry.2015713320" required />
+          </div>
+          <div class="inputfield">
+            <label>When did you start playing Minecraft</label>
+            <input type="text" name="entry.1485149881" required />
+          </div>
+          <div class="inputfield">
+            <label>Country</label>
+            <input type="text" name="entry.744226845" required />
+          </div>
+          <div class="inputfield">
+            <label>How many Hours can you play?</label>
+            <input type="text" name="entry.1979755176" required />
+            <div class="nextButton" onclick="hidesomething()">Next</div>
+          </div>
+        </div> -->
+        <div class="showafternext">
+          <!-- <span
+            class="material-symbols-outlined backarrow"
+            onclick="hidesomething()"
+          >
+            arrow_back
+          </span> -->
+          <div class="rulesShow">
+            <h3>Server Rules</h3>
+            <br />
+            <ol>
+              <li>Block Placement Restrictions:</li>
+              <br />
+              <ul>
+                <li>
+                  Do not place blocks anywhere in the world. If staff or admins
+                  find unauthorized block placements, there is a high chance you
+                  will receive a temporary ban.
+                </li>
+              </ul>
+              <br /><br />
+
+              <li>Netherite Grinding Prohibition:</li>
+              <br />
+              <ul>
+                <li>
+                  Grinding for netherite is prohibited on this server.
+                  Possession of netherite or ancient debris will result in a
+                  serious ban.
+                </li>
+              </ul>
+              <br /><br />
+              <li>PvP Guidelines:</li>
+              <br />
+              <ul>
+                <li>
+                  PvP is allowed, but you are not permitted to steal items after
+                  killing someone. Killing other players will place a bounty on
+                  your head, encouraging other SMP players to hunt you and claim
+                  rewards.
+                </li>
+              </ul>
+              <br /><br />
+
+              <li>Netherite Grinding Prohibition:</li>
+              <br />
+              <ul>
+                <li>
+                  Griefing or destroying other players' houses will result in a
+                  permanent ban.
+                </li>
+              </ul>
+              <br /><br />
+              <li>Argument Resolution:</li>
+              <br />
+              <ul>
+                <li>
+                  Keep any arguments or fights within the SMP. Reach out to
+                  admins for help rather than fighting on Discord. Engaging in
+                  fights on Discord will lead to a permanent ban.
+                </li>
+              </ul>
+              <br /><br />
+
+              <li>Respect and Abuse:</li>
+              <br />
+              <ul>
+                <li>
+                  Be respectful to all players on the SMP. Abuse in the SMP chat
+                  will not be tolerated.
+                </li>
+              </ul>
+              <br />
+              <li>Base Placement:</li>
+              <ul>
+                <li>
+                  Be respectful to all players on the SMP. Abuse in the SMP chat
+                  will not be tolerated.
+                </li>
+              </ul>
+              <br /><br />
+            </ol>
+            By following these rules, you help ensure a positive and enjoyable
+            experience for everyone on the server. Thank you for your
+            cooperation!<br /><br />
+          </div>
+          <!-- <input type="checkbox" id="accept" required />
+          <label for="accept" class="label-accept"
+            >Do you agree with terms and conditions</label
+          > -->
+          <!-- <input type="submit" class="sb-btn" /> -->
+        </div>
+      </form>
+    </section>
+    <div class="done">Done</div>
     <footer class="copyright_div">
       <a href="https://github.com/spreadsheets600" class="copyright"
         >Made By SOHAM & Leaf With ❤ | &copy; 2024

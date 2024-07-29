@@ -1,9 +1,12 @@
+// Function to close the whitelist form
 const closeform = () => {
-  document.getElementById("wl-form").classList.toggle("hidden");
+  const wlForm = document.getElementById("wl-form");
+  if (wlForm) {
+    wlForm.classList.add("hidden");
+  }
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Firebase initialization
   const firebaseConfig = {
     apiKey: "AIzaSyCF6LLa_JIiVvYxmM1026wQouwhvHUbjGc",
     authDomain: "ga-pc-1e736.firebaseapp.com",
@@ -35,19 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Mobile navbar functionality
-  function mobile_navbar_link_hider() {
+  window.mobile_navbar_link_hider = function () {
     var x = document.getElementById("mobile_navbar_links");
     if (x.style.display === "flex") {
       x.style.display = "none";
     } else {
       x.style.display = "flex";
     }
-  }
+  };
 
   // IP copying functionality
-  function copyText() {
+  window.copyText = function () {
     navigator.clipboard.writeText("play.fallensmp.xyz");
-  }
+  };
 
   $(document).ready(function () {
     $(".main1_ipcopier").click(function () {
@@ -287,62 +290,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateCards();
 
-  // Form functionality
-  const hidesomething = () => {
-    document.querySelector(".hideafterNext").classList.toggle("hidden");
-    document.querySelector(".showafternext").classList.toggle("hidden");
-  };
-
-  const closeform = () => {
-    document.getElementById("wl-form").classList.toggle("hidden");
-  };
-
-  const submitform = () => {
-    document.querySelector(".done").style.translate = "-300px";
-    setTimeout(() => {
-      document.querySelector(".done").style.translate = "0px";
-    }, 3000);
-    document.getElementById("wl-form").classList.toggle("hidden");
-  };
-
-  // Add event listeners for form functionality if the elements exist
-  const hideAfterNextElement = document.querySelector(".hideafterNext");
-  const showAfterNextElement = document.querySelector(".showafternext");
-  const wlFormElement = document.getElementById("wl-form");
-  const doneElement = document.querySelector(".done");
-
-  if (hideAfterNextElement && showAfterNextElement) {
-    document
-      .querySelector(".nextButton")
-      .addEventListener("click", hidesomething);
+  // Rules button and whitelist form functionality
+  const rulesButton = document.querySelector(".nextButton");
+  if (rulesButton) {
+    rulesButton.addEventListener("click", () => {
+      const wlForm = document.getElementById("wl-form");
+      if (wlForm) {
+        wlForm.classList.remove("hidden");
+      }
+    });
   }
 
-  if (wlFormElement) {
-    document.querySelector(".closeform").addEventListener("click", closeform);
-    document.querySelector(".sb-btn").addEventListener("click", submitform);
+  // Add event listener for the close button
+  const closeButton = document.querySelector(".closeform");
+  if (closeButton) {
+    closeButton.addEventListener("click", closeform);
   }
-
-  const rulesButton = document.getElementById("rulesButton");
-  const wlForm = document.getElementById("wl-form");
-  const closeForm = document.querySelector(".closeform");
-
-  rulesButton.addEventListener("click", function () {
-    wlForm.classList.remove("hidden");
-  });
-
-  closeForm.addEventListener("click", function () {
-    wlForm.classList.add("hidden");
-  });
 
   // Close the form when clicking outside of it
   window.addEventListener("click", function (event) {
+    const wlForm = document.getElementById("wl-form");
     if (event.target === wlForm) {
       wlForm.classList.add("hidden");
     }
   });
-});
 
-// Remove the old closeform function if it exists
-// const closeform = () => {
-//   document.getElementById("wl-form").classList.toggle("hidden");
-// };
+  // Form submission functionality (if needed)
+  window.submitform = function () {
+    document.querySelector(".done").style.translate = "-300px";
+    setTimeout(() => {
+      document.querySelector(".done").style.translate = "0px";
+    }, 3000);
+    document.getElementById("wl-form").classList.add("hidden");
+  };
+});

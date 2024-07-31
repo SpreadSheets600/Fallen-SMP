@@ -188,9 +188,9 @@ document.addEventListener("DOMContentLoaded", function () {
       rankClass: "admin",
     },
     {
-      img: "assets/superrr.webp",
+      img: "assets/parzival.gif",
       rank: "ADMIN",
-      name: "Superrr",
+      name: "P4RZ1V4L",
       description: "Admin, Developer And Contributor",
       rankClass: "admin",
     },

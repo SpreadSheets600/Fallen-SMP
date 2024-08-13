@@ -1,5 +1,8 @@
 # Website For Fallen SMP
 
+## Stats
+![Alt](https://repobeats.axiom.co/api/embed/497dd5ce5c7403d9f24bb755d733c3213e17d18a.svg "Repobeats analytics image")
+
 ## Screenshots
 
 ![image](https://github.com/user-attachments/assets/77ad906c-2782-4ab8-ac53-880dc55a67fd)

@@ -1,8 +1,8 @@
 # Website For Fallen SMP
 
 ## Stats
-<div align=centre>
-  ![Alt](https://repobeats.axiom.co/api/embed/497dd5ce5c7403d9f24bb755d733c3213e17d18a.svg "Repobeats analytics image")
+<div align="center">
+ <a href="https://repobeats.axiom.co"><img src="https://repobeats.axiom.co/api/embed/497dd5ce5c7403d9f24bb755d733c3213e17d18a.svg" alt="GitHub Streak" /></a>
 </div>
 
 ## Screenshots

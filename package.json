@@ -1,15 +1,20 @@
 {
-  "name": "Fallen-SMP",
+  "name": "fallensmp",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "start": "node api/server.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.20.0",
-    "express-session": "^1.18.0",
-    "Fallen-SMP": "file:",
-    "passport": "^0.7.0",
-    "passport-discord": "^0.1.4"
+    "@hapi/iron": "^7.0.0",
+    "cookie": "^0.5.0",
+    "fallensmp": "file:",
+    "next": "latest",
+    "passport": "^0.6.0",
+    "passport-discord": "^0.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

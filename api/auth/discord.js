@@ -1,6 +1,6 @@
 import passport from 'passport';
 import { Strategy as DiscordStrategy } from 'passport-discord';
-import { getSession } from '../../lib/auth';
+import { getSession } from '../../lib/auth.js';
 
 passport.use(new DiscordStrategy({
   clientID: process.env.DISCORD_CLIENT_ID,

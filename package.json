@@ -3,18 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "mkdir -p public && cp index.html public/"
   },
   "dependencies": {
     "@hapi/iron": "^7.0.0",
     "cookie": "^0.5.0",
-    "fallensmp": "file:",
-    "next": "latest",
     "passport": "^0.6.0",
-    "passport-discord": "^0.1.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "passport-discord": "^0.1.4"
   }
 }

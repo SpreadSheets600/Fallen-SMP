@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $(document).ready(() => {
     $(".main1_ipcopier").click(function () {
-      const popup = $('<div class="main1_popup"><h3 class="copy_confirm">Copied IP to clipboard</h3></div>');
+      const popup = $(
+        '<div class="main1_popup"><h3 class="copy_confirm">Copied IP to clipboard</h3></div>'
+      );
       $(this).after(popup);
       setTimeout(() => popup.remove(), 1000);
     });
@@ -36,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       img: "assets/items.jpg",
       title: "Custom Items",
-      description: "Fallen SMP Features Amazing Custom And Unique Items And Mobs",
+      description:
+        "Fallen SMP Features Amazing Custom And Unique Items And Mobs",
     },
     {
       img: "assets/drops.jpg",
@@ -51,14 +54,21 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       img: "assets/bg.png",
       title: "Dungeons & Economy",
-      description: "Fallen SMP Has Its Unique System For Mob Dungeons And Economy",
+      description:
+        "Fallen SMP Has Its Unique System For Mob Dungeons And Economy",
     },
   ];
 
   let currentFeatureIndex = 0;
-  const featureCarouselContainer = document.querySelector(".feature-carousel-container");
-  const featurePrevButton = document.querySelector(".features-carousel .f-nav-button.prev");
-  const featureNextButton = document.querySelector(".features-carousel .f-nav-button.next");
+  const featureCarouselContainer = document.querySelector(
+    ".feature-carousel-container"
+  );
+  const featurePrevButton = document.querySelector(
+    ".features-carousel .f-nav-button.prev"
+  );
+  const featureNextButton = document.querySelector(
+    ".features-carousel .f-nav-button.next"
+  );
 
   const createFeatureCard = (feature) => `
     <div class="feature-card">
@@ -70,25 +80,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateFeatureCards = () => {
     featureCarouselContainer.innerHTML = "";
-    const prevIndex = (currentFeatureIndex - 1 + features.length) % features.length;
+    const prevIndex =
+      (currentFeatureIndex - 1 + features.length) % features.length;
     const nextIndex = (currentFeatureIndex + 1) % features.length;
 
-    featureCarouselContainer.innerHTML = createFeatureCard(features[prevIndex]) +
+    featureCarouselContainer.innerHTML =
+      createFeatureCard(features[prevIndex]) +
       createFeatureCard(features[currentFeatureIndex]) +
       createFeatureCard(features[nextIndex]);
 
-    featureCarouselContainer.querySelector(".feature-card:nth-child(1)").classList.add("prev-card");
-    featureCarouselContainer.querySelector(".feature-card:nth-child(2)").classList.add("active-card");
-    featureCarouselContainer.querySelector(".feature-card:nth-child(3)").classList.add("next-card");
+    featureCarouselContainer
+      .querySelector(".feature-card:nth-child(1)")
+      .classList.add("prev-card");
+    featureCarouselContainer
+      .querySelector(".feature-card:nth-child(2)")
+      .classList.add("active-card");
+    featureCarouselContainer
+      .querySelector(".feature-card:nth-child(3)")
+      .classList.add("next-card");
   };
 
   const moveFeatureCards = (direction) => {
     featureCarouselContainer.classList.add(`move-${direction}`);
 
     setTimeout(() => {
-      currentFeatureIndex = direction === "left"
-        ? (currentFeatureIndex + 1) % features.length
-        : (currentFeatureIndex - 1 + features.length) % features.length;
+      currentFeatureIndex =
+        direction === "left"
+          ? (currentFeatureIndex + 1) % features.length
+          : (currentFeatureIndex - 1 + features.length) % features.length;
 
       updateFeatureCards();
       featureCarouselContainer.classList.remove("move-left", "move-right");
@@ -163,25 +182,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateCards = () => {
     carouselContainer.innerHTML = "";
-    const prevIndex = (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
+    const prevIndex =
+      (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
     const nextIndex = (currentMemberIndex + 1) % teamMembers.length;
 
-    carouselContainer.innerHTML = createCard(teamMembers[prevIndex]) +
+    carouselContainer.innerHTML =
+      createCard(teamMembers[prevIndex]) +
       createCard(teamMembers[currentMemberIndex]) +
       createCard(teamMembers[nextIndex]);
 
-    carouselContainer.querySelector(".team-member-card:nth-child(1)").classList.add("prev-card");
-    carouselContainer.querySelector(".team-member-card:nth-child(2)").classList.add("active-card");
-    carouselContainer.querySelector(".team-member-card:nth-child(3)").classList.add("next-card");
+    carouselContainer
+      .querySelector(".team-member-card:nth-child(1)")
+      .classList.add("prev-card");
+    carouselContainer
+      .querySelector(".team-member-card:nth-child(2)")
+      .classList.add("active-card");
+    carouselContainer
+      .querySelector(".team-member-card:nth-child(3)")
+      .classList.add("next-card");
   };
 
   const moveCards = (direction) => {
     carouselContainer.classList.add(`move-${direction}`);
 
     setTimeout(() => {
-      currentMemberIndex = direction === "left"
-        ? (currentMemberIndex + 1) % teamMembers.length
-        : (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
+      currentMemberIndex =
+        direction === "left"
+          ? (currentMemberIndex + 1) % teamMembers.length
+          : (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
 
       updateCards();
       carouselContainer.classList.remove("move-left", "move-right");
@@ -191,7 +219,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const handleTouch = (event) => event.touches[0].clientX;
 
   let touchStartX = 0;
-  carouselContainer.addEventListener("touchstart", (e) => (touchStartX = handleTouch(e)), false);
+  carouselContainer.addEventListener(
+    "touchstart",
+    (e) => (touchStartX = handleTouch(e)),
+    false
+  );
   carouselContainer.addEventListener("touchend", (e) => {
     const touchEndX = handleTouch(e);
     if (touchStartX - touchEndX > 75) moveCards("left");
@@ -212,7 +244,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const closeButton = document.querySelector(".closeform");
-  if (closeButton) closeButton.addEventListener("click", () => document.getElementById("wl-form").classList.add("hidden"));
+  if (closeButton)
+    closeButton.addEventListener("click", () =>
+      document.getElementById("wl-form").classList.add("hidden")
+    );
 
   window.addEventListener("click", (event) => {
     const wlForm = document.getElementById("wl-form");
@@ -221,7 +256,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.submitform = () => {
     document.querySelector(".done").style.translate = "-300px";
-    setTimeout(() => document.querySelector(".done").style.translate = "0px", 3000);
+    setTimeout(
+      () => (document.querySelector(".done").style.translate = "0px"),
+      3000
+    );
     document.getElementById("wl-form").classList.add("hidden");
   };
 });

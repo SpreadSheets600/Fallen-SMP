@@ -1,81 +1,42 @@
-// Function to close the whitelist form
-const closeform = () => {
-  const wlForm = document.getElementById("wl-form");
-  if (wlForm) {
-    wlForm.classList.add("hidden");
-  }
-};
-
-document.addEventListener("DOMContentLoaded", function () {
-  const firebaseConfig = {
-    apiKey: "AIzaSyCF6LLa_JIiVvYxmM1026wQouwhvHUbjGc",
-    authDomain: "ga-pc-1e736.firebaseapp.com",
-    projectId: "ga-pc-1e736",
-    storageBucket: "ga-pc-1e736.appspot.com",
-    messagingSenderId: "39302039192",
-    appId: "1:39302039192:web:5359f44894840bb855b2ed",
-  };
-
-  // Initialize Firebase (make sure to import the necessary Firebase modules)
-  // const app = initializeApp(firebaseConfig);
-  // const analytics = getAnalytics(app);
-  // const perf = getPerformance(app);
-
-  // Smooth scrolling for navigation links
+document.addEventListener("DOMContentLoaded", () => {
   const scrollLinks = document.querySelectorAll(".scroll");
-  scrollLinks.forEach(function (link) {
-    link.addEventListener("click", function (event) {
+  scrollLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
       event.preventDefault();
       const target = document.querySelector(link.getAttribute("href"));
       if (target) {
-        const offsetTop = target.offsetTop;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
+        window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
       }
     });
   });
 
-  // Mobile navbar functionality
-  window.mobile_navbar_link_hider = function () {
-    var x = document.getElementById("mobile_navbar_links");
-    if (x.style.display === "flex") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "flex";
-    }
+  window.mobile_navbar_link_hider = () => {
+    const x = document.getElementById("mobile_navbar_links");
+    x.style.display = x.style.display === "flex" ? "none" : "flex";
   };
 
-  // IP copying functionality
-  window.copyText = function () {
+  window.copyText = () => {
     navigator.clipboard.writeText("play.fallensmp.xyz");
   };
 
-  $(document).ready(function () {
+  $(document).ready(() => {
     $(".main1_ipcopier").click(function () {
-      var popup = $("<div>", { class: "main1_popup" }).append(
-        $('<h3 class="copy_confirm">').text("Copied IP to clipboard")
-      );
+      const popup = $('<div class="main1_popup"><h3 class="copy_confirm">Copied IP to clipboard</h3></div>');
       $(this).after(popup);
-      setTimeout(function () {
-        popup.remove();
-      }, 1000);
+      setTimeout(() => popup.remove(), 1000);
     });
   });
 
-  // Features carousel
   const features = [
     {
       img: "assets/roleplay.png",
       title: "Custom Roleplay",
-      description: "Fallen SMP Has It's Own Custom And Unique Roleplay System",
+      description: "Fallen SMP Has Its Own Custom And Unique Roleplay System",
     },
     {
       img: "assets/items.jpg",
       title: "Custom Items",
-      description:
-        "Fallen SMP Features Amazing Custom And Unique Items And Mobs",
+      description: "Fallen SMP Features Amazing Custom And Unique Items And Mobs",
     },
     {
       img: "assets/drops.jpg",
@@ -85,79 +46,60 @@ document.addEventListener("DOMContentLoaded", function () {
     {
       img: "assets/bg.png",
       title: "Guilds & Hierarchy",
-      description: "Fallen SMP Has It's Own Guild System With Hierarchy",
+      description: "Fallen SMP Has Its Own Guild System With Hierarchy",
     },
     {
       img: "assets/bg.png",
       title: "Dungeons & Economy",
-      description:
-        "Fallen SMP Has It's Unique System For Mob Dungeons And Economy",
+      description: "Fallen SMP Has Its Unique System For Mob Dungeons And Economy",
     },
   ];
 
   let currentFeatureIndex = 0;
-  const featureCarouselContainer = document.querySelector(
-    ".feature-carousel-container"
-  );
-  const featurePrevButton = document.querySelector(
-    ".features-carousel .f-nav-button.prev"
-  );
-  const featureNextButton = document.querySelector(
-    ".features-carousel .f-nav-button.next"
-  );
+  const featureCarouselContainer = document.querySelector(".feature-carousel-container");
+  const featurePrevButton = document.querySelector(".features-carousel .f-nav-button.prev");
+  const featureNextButton = document.querySelector(".features-carousel .f-nav-button.next");
 
-  function createFeatureCard(feature) {
-    const card = document.createElement("div");
-    card.className = "feature-card";
-    card.innerHTML = `
-        <img class="feature-img" src="${feature.img}" alt="${feature.title}">
-        <h3 class="feature-title">${feature.title}</h3>
-        <p class="feature-description">${feature.description}</p>
-      `;
-    return card;
-  }
+  const createFeatureCard = (feature) => `
+    <div class="feature-card">
+      <img class="feature-img" src="${feature.img}" alt="${feature.title}">
+      <h3 class="feature-title">${feature.title}</h3>
+      <p class="feature-description">${feature.description}</p>
+    </div>
+  `;
 
-  function updateFeatureCards() {
+  const updateFeatureCards = () => {
     featureCarouselContainer.innerHTML = "";
-    const prevIndex =
-      (currentFeatureIndex - 1 + features.length) % features.length;
+    const prevIndex = (currentFeatureIndex - 1 + features.length) % features.length;
     const nextIndex = (currentFeatureIndex + 1) % features.length;
 
-    const prevCard = createFeatureCard(features[prevIndex]);
-    const activeCard = createFeatureCard(features[currentFeatureIndex]);
-    const nextCard = createFeatureCard(features[nextIndex]);
+    featureCarouselContainer.innerHTML = createFeatureCard(features[prevIndex]) +
+      createFeatureCard(features[currentFeatureIndex]) +
+      createFeatureCard(features[nextIndex]);
 
-    prevCard.classList.add("prev-card");
-    activeCard.classList.add("active-card");
-    nextCard.classList.add("next-card");
+    featureCarouselContainer.querySelector(".feature-card:nth-child(1)").classList.add("prev-card");
+    featureCarouselContainer.querySelector(".feature-card:nth-child(2)").classList.add("active-card");
+    featureCarouselContainer.querySelector(".feature-card:nth-child(3)").classList.add("next-card");
+  };
 
-    featureCarouselContainer.appendChild(prevCard);
-    featureCarouselContainer.appendChild(activeCard);
-    featureCarouselContainer.appendChild(nextCard);
-  }
-
-  function moveFeatureCards(direction) {
+  const moveFeatureCards = (direction) => {
     featureCarouselContainer.classList.add(`move-${direction}`);
 
     setTimeout(() => {
-      if (direction === "left") {
-        currentFeatureIndex = (currentFeatureIndex + 1) % features.length;
-      } else {
-        currentFeatureIndex =
-          (currentFeatureIndex - 1 + features.length) % features.length;
-      }
+      currentFeatureIndex = direction === "left"
+        ? (currentFeatureIndex + 1) % features.length
+        : (currentFeatureIndex - 1 + features.length) % features.length;
 
       updateFeatureCards();
       featureCarouselContainer.classList.remove("move-left", "move-right");
     }, 500);
-  }
+  };
 
   featurePrevButton.addEventListener("click", () => moveFeatureCards("right"));
   featureNextButton.addEventListener("click", () => moveFeatureCards("left"));
 
   updateFeatureCards();
 
-  // Team members carousel
   const teamMembers = [
     {
       img: "assets/fallen.gif",
@@ -204,123 +146,82 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   let currentMemberIndex = 0;
-  let touchStartX = 0;
-  let touchEndX = 0;
   const carouselContainer = document.querySelector(".carousel-container");
   const prevButton = document.querySelector(".team-carousel .nav-button.prev");
   const nextButton = document.querySelector(".team-carousel .nav-button.next");
 
-  // Add touch event listeners
-  carouselContainer.addEventListener("touchstart", handleTouchStart, false);
-  carouselContainer.addEventListener("touchmove", handleTouchMove, false);
-  carouselContainer.addEventListener("touchend", handleTouchEnd, false);
+  const createCard = (member) => `
+    <div class="team-member-card">
+      <img class="team-member-img" alt="${member.name}" src="${member.img}" />
+      <div class="team-member-info">
+        <span class="team-member-rank ${member.rankClass}">${member.rank}</span>
+        <h3 class="team-member-name">${member.name}</h3>
+      </div>
+      <p class="team-member-description">${member.description}</p>
+    </div>
+  `;
 
-  function createCard(member) {
-    const card = document.createElement("div");
-    card.className = "team-member-card";
-    card.innerHTML = `
-        <img class="team-member-img" alt="${member.name}" src="${member.img}" />
-        <div class="team-member-info">
-          <span class="team-member-rank ${member.rankClass}">${member.rank}</span>
-          <h3 class="team-member-name">${member.name}</h3>
-        </div>
-        <p class="team-member-description">${member.description}</p>
-      `;
-    return card;
-  }
-
-  function updateCards() {
+  const updateCards = () => {
     carouselContainer.innerHTML = "";
-    const prevIndex =
-      (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
+    const prevIndex = (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
     const nextIndex = (currentMemberIndex + 1) % teamMembers.length;
 
-    const prevCard = createCard(teamMembers[prevIndex]);
-    const activeCard = createCard(teamMembers[currentMemberIndex]);
-    const nextCard = createCard(teamMembers[nextIndex]);
+    carouselContainer.innerHTML = createCard(teamMembers[prevIndex]) +
+      createCard(teamMembers[currentMemberIndex]) +
+      createCard(teamMembers[nextIndex]);
 
-    prevCard.classList.add("prev-card");
-    activeCard.classList.add("active-card");
-    nextCard.classList.add("next-card");
+    carouselContainer.querySelector(".team-member-card:nth-child(1)").classList.add("prev-card");
+    carouselContainer.querySelector(".team-member-card:nth-child(2)").classList.add("active-card");
+    carouselContainer.querySelector(".team-member-card:nth-child(3)").classList.add("next-card");
+  };
 
-    carouselContainer.appendChild(prevCard);
-    carouselContainer.appendChild(activeCard);
-    carouselContainer.appendChild(nextCard);
-  }
-
-  function moveCards(direction) {
+  const moveCards = (direction) => {
     carouselContainer.classList.add(`move-${direction}`);
 
     setTimeout(() => {
-      if (direction === "left") {
-        currentMemberIndex = (currentMemberIndex + 1) % teamMembers.length;
-      } else {
-        currentMemberIndex =
-          (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
-      }
+      currentMemberIndex = direction === "left"
+        ? (currentMemberIndex + 1) % teamMembers.length
+        : (currentMemberIndex - 1 + teamMembers.length) % teamMembers.length;
 
       updateCards();
       carouselContainer.classList.remove("move-left", "move-right");
     }, 500);
-  }
+  };
 
-  function handleTouchStart(event) {
-    touchStartX = event.touches[0].clientX;
-  }
+  const handleTouch = (event) => event.touches[0].clientX;
 
-  function handleTouchMove(event) {
-    touchEndX = event.touches[0].clientX;
-  }
-
-  function handleTouchEnd() {
-    if (touchStartX - touchEndX > 75) {
-      // Swipe left
-      moveCards("left");
-    } else if (touchEndX - touchStartX > 75) {
-      // Swipe right
-      moveCards("right");
-    }
-    // Reset values
-    touchStartX = 0;
-    touchEndX = 0;
-  }
+  let touchStartX = 0;
+  carouselContainer.addEventListener("touchstart", (e) => (touchStartX = handleTouch(e)), false);
+  carouselContainer.addEventListener("touchend", (e) => {
+    const touchEndX = handleTouch(e);
+    if (touchStartX - touchEndX > 75) moveCards("left");
+    else if (touchEndX - touchStartX > 75) moveCards("right");
+  });
 
   prevButton.addEventListener("click", () => moveCards("right"));
   nextButton.addEventListener("click", () => moveCards("left"));
 
   updateCards();
 
-  // Rules button and whitelist form functionality
   const rulesButton = document.querySelector(".nextButton");
   if (rulesButton) {
     rulesButton.addEventListener("click", () => {
       const wlForm = document.getElementById("wl-form");
-      if (wlForm) {
-        wlForm.classList.remove("hidden");
-      }
+      if (wlForm) wlForm.classList.remove("hidden");
     });
   }
 
-  // Add event listener for the close button
   const closeButton = document.querySelector(".closeform");
-  if (closeButton) {
-    closeButton.addEventListener("click", closeform);
-  }
+  if (closeButton) closeButton.addEventListener("click", () => document.getElementById("wl-form").classList.add("hidden"));
 
-  // Close the form when clicking outside of it
-  window.addEventListener("click", function (event) {
+  window.addEventListener("click", (event) => {
     const wlForm = document.getElementById("wl-form");
-    if (event.target === wlForm) {
-      wlForm.classList.add("hidden");
-    }
+    if (event.target === wlForm) wlForm.classList.add("hidden");
   });
 
-  // Form submission functionality (if needed)
-  window.submitform = function () {
+  window.submitform = () => {
     document.querySelector(".done").style.translate = "-300px";
-    setTimeout(() => {
-      document.querySelector(".done").style.translate = "0px";
-    }, 3000);
+    setTimeout(() => document.querySelector(".done").style.translate = "0px", 3000);
     document.getElementById("wl-form").classList.add("hidden");
   };
 });

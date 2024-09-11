@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fallen SMP</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- <div id="modalPopup" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p></p>
+        <br />
+        <h2 class="popup_heading">SERVER IS On Last Phase</h2>
+        <p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fallen SMP</title>
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      href="https://fonts.bunny.net/css?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div id="modalPopup" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p></p>
+        <br />
+        <h2 class="popup_heading">SERVER IS On Last Phase</h2>
+        <p>
+          Fallen SMP Is On It's Last Stage Of Development.<br />Discord To Get Early Access And Updates.
+          <br />
+          <br />
+        </p>
+        <div class="popup_div">
+          <a href="https://discord.gg/WgJdHTMjgD" class="popup_button">
+            Join Now</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var modal = document.getElementById("modalPopup");
+      var closeBtn = document.getElementsByClassName("close")[0];
+      window.onload = function () {
+        modal.style.display = "block";
+      };
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Navbar Dekstop -->
+
+    <nav class="desktop_navbar">
+      <a href="#"
+        ><img class="desktop_navbar_logo_img" src="assets/logo.png" alt="logo"
+      /></a>
+      <a href="#features" class="desktop_navbar_link scroll">Features</a>
+      <a href="#discord" class="desktop_navbar_link scroll">Community</a>
+      <a href="#about" class="desktop_navbar_link scroll">About Us</a>
+      <a href="#" class="desktop_navbar_link">Wiki ( SOON )</a>
+      <div class="desktop_navbar_link2_div">
+        <a href="#join" class="desktop_navbar_link2 scroll">Join NOW</a>
+      </div>
+      <div class="desktop_navbar_link2_div">
+        <a
+          href="/auth/discord"
+          class="desktop_navbar_link scroll"
+          >LOGIN</a
+        >
+      </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+
+    <div class="mobile_navbar">
+      <a href="#" class="mobile_navbar_logo_img_a"
+        ><img class="mobile_navbar_logo_img" src="assets/logo.png" alt="logo"
+      /></a>
+      <div id="mobile_navbar_links">
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#features"
+          >Features</a
+        >
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#discord"
+          >Community</a
+        >
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#about"
+          >About Us</a
+        >
+        <a
+          class="mobile_navbar_link scroll"
+          onclick="mobile_navbar_link_hider()"
+          href="#join"
+          >Join Us</a
+        >
+        <a
+          class="mobile_navbar_link"
+          onclick="mobile_navbar_link_hider()"
+          href="#"
+          >Wiki ( SOON )</a
+        >
+      </div>
+      <div class="mobile_icon" onclick="mobile_navbar_link_hider()">
+        <i class="fa fa-bars"></i>
+      </div>
+    </div>
+    <div class="mainflex">
+      <div class="main1">
+        <video class="videocan" autoplay loop muted>
+          <source src="/public/assets/rain.mp4" type="video/mp4" />
+        </video>
+        <a class="main1_logo_a" href="#">
+          <img class="main1_logo" src="assets/big_logo.png" alt="logo" />
+        </a>
+        <div class="main1_description">
+          <a>Uncharted Territory<br />Experience Like</a>
+          <a class="main1_actcent">Never Before</a><a></a>
+        </div>
+        <div class="main1_ipcopier_div">
+          <button class="main1_ipcopier" onclick="copyText()" type="button">
+            <span class="main1_ipcopier_text1">play.fallensmp.xyz</span>
+            <br />
+          </button>
+        </div>
+        <a href="#features" class="scroll">
+          <img
+            alt="downarrow"
+            class="main1_downarrow"
+            src="assets/downarrow.png"
+          />
+        </a>
+      </div>
+      <div id="features"></div>
+      <div class="main2">
+        <a class="headline">Features</a>
+        <div class="features-carousel">
+          <button class="f-nav-button prev">&lt;</button>
+          <div class="feature-carousel-container">
+            <div class="feature-card prev-card"></div>
+            <div class="feature-card active-card"></div>
+            <div class="feature-card next-card"></div>
+          </div>
+          <button class="f-nav-button next">&gt;</button>
+        </div>
+      </div>
+      <div id="discord"></div>
+      <div class="main4">
+        <a class="headline">Have Queries ?</a>
+        <div class="main4_dc_div">
+          <img class="main4_img" src="assets/discord.jpg" alt="discord" />
+          <div class="main4_dc_description_div">
+            <a class="main4_dc_description_title">Join Discord Server</a>
+            <a class="main4_dc_description">
+              ・Meet Other Players <br />
+              ・Give Feedback <br />
+              ・Ask Questions <br />
+              ・Get Updates <br /><br />
+              &amp; More
+            </a>
+            <a href="https://discord.gg/qupixplay" class="main4_dc_button_a">
+              <div class="main4_dc_button">Join</div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="about"></div>
+      <div class="main5">
+        <a class="headline">Team Members</a>
+        <div class="team-carousel">
+          <button class="nav-button prev">&lt;</button>
+          <div class="carousel-container">
+            <div class="team-member-card prev-card"></div>
+            <div class="team-member-card active-card"></div>
+            <div class="team-member-card next-card"></div>
+          </div>
+          <button class="nav-button next">&gt;</button>
+        </div>
+      </div>
+      <div id="join"></div>
+      <div class="main3">
+        <a class="headline">How To Join ?</a>
+        <div class="main3_join_div_div">
+          <div class="main3_join_div">
+            <a class="main3_join_title">Java</a>
+            <div class="main3_join_content_div">
+              <div class="main3_join_categories">
+                <a>IP </a>
+                <a>Version </a>
+              </div>
+              <div class="main3_join_values">
+                <a>play.fallensmp.xyz</a>
+                <a>1.21</a>
+              </div>
+            </div>
+          </div>
+          <div class="main3_join_div">
+            <a class="main3_join_title">Bedrock</a>
+            <div class="main3_join_content_div">
+              <div class="main3_join_categories">
+                <a>IP </a>
+                <a>Port </a>
+              </div>
+              <div class="main3_join_values">
+                <a>play.fallensmp.xyz</a>
+                <a>35564</a>
+              </div>
+            </div>
+          </div>
+          <div class="fillform_main3_join_div">
+            <a class="main3_join_title">Rules & Guide</a>
+            <div class="main3_join_content_div">
+              <div class="nextButton" onclick="closeform()">Server Rules</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="wl-form" class="hidden">
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdzcNzQSRTpPaPeU0QhIlfKD9r3l42EpOeHblVxrAbMf1Hy6g/formResponse"
+        method="post"
+        target="hiddenConfirm"
+        onsubmit="submitform()"
+      >
+        <h2>Rules</h2>
+        <span class="material-symbols-outlined closeform" onclick="closeform()">
+          close
+        </span>
+        <!-- <div class="hideafterNext">
+          <div class="inputfield">
+            <label>Discord Username</label>
+            <input type="text" name="entry.1002599630" required />
+          </div>
+          <div class="inputfield">
+            <label>Minecraft Username</label>
+            <input type="text" name="entry.2015713320" required />
+          </div>
+          <div class="inputfield">
+            <label>When did you start playing Minecraft</label>
+            <input type="text" name="entry.1485149881" required />
+          </div>
+          <div class="inputfield">
+            <label>Country</label>
+            <input type="text" name="entry.744226845" required />
+          </div>
+          <div class="inputfield">
+            <label>How many Hours can you play?</label>
+            <input type="text" name="entry.1979755176" required />
+            <div class="nextButton" onclick="hidesomething()">Next</div>
+          </div>
+        </div> -->
+        <div class="showafternext">
+          <!-- <span
+            class="material-symbols-outlined backarrow"
+            onclick="hidesomething()"
+          >
+            arrow_back
+          </span> -->
+          <div class="rulesShow">
+            <h3>Server Rules</h3>
+            <br />
+            <ol>
+              <li>
+                Refrain from Unnecessary PvP
+                <ul>
+                  <li>
+                    If you want to engage in PvP, arrange it with others and
+                    ensure everyone agrees. Unplanned PvP can disrupt the game
+                    experience.
+                  </li>
+                </ul>
+                <br />
+              </li>
+
+              <li>
+                Roleplay as Your Character
+                <ul>
+                  <li>
+                    Since this is a roleplay server, you must act as your
+                    character described in your character story. This enhances
+                    the immersive experience for everyone.
+                  </li>
+                </ul>
+                <br />
+              </li>
+
+              <li>
+                Value Your Life In Game As Much As In Real Life
+                <ul>
+                  <li>
+                    Treat your in-game life with care and caution, just as you
+                    would in reality. This rule ensures a more realistic and
+                    engaging gameplay experience.
+                  </li>
+                </ul>
+                <br />
+              </li>
+
+              <li>
+                No Chat Toxicity
+                <ul>
+                  <li>
+                    Toxic behaviour in chat is strictly prohibited. Maintain a
+                    respectful and positive environment for all players.
+                  </li>
+                </ul>
+                <br />
+              </li>
+
+              <li>
+                No Stealing
+                <ul>
+                  <li>
+                    Stealing from other players is not allowed. Engaging in
+                    theft can lead to being labelled as an outlaw and facing
+                    consequences.
+                  </li>
+                </ul>
+                <br />
+              </li>
+
+              <li>
+                Obey Orders from Duke, King, and Emperor
+                <ul>
+                  <li>
+                    You must follow the orders issued by the Duke, King, and
+                    Emperor. This maintains the hierarchical structure and order
+                    within the server.
+                  </li>
+                </ul>
+                <br />
+              </li>
+
+              <li>
+                Building Permissions Required
+                <ul>
+                  <li>
+                    To build a house, you must obtain permission from the Duke.
+                    This ensures organized and planned development within the
+                    server.
+                  </li>
+                </ul>
+                <br />
+              </li>
+              <li>
+                Teaming Up with outlaw
+                <ul>
+                  <li>
+                    If someone is outlaw and you are citizen then you are not
+                    allowed to team up with outlaw, however an outlaw can team
+                    up with other outlaw, same goes for citizen , if we catch a
+                    citizen teaming up with any outlaw , we will also make that
+                    citizen outlaw
+                  </li>
+                </ul>
+                <br />
+              </li>
+            </ol>
+            By following these rules, you help ensure a positive and enjoyable
+            experience for everyone on the server. Thank you for your
+            cooperation!<br /><br />
+          </div>
+
+          <!-- <input type="checkbox" id="accept" required />
+          <label for="accept" class="label-accept"
+            >Do you agree with terms and conditions</label
+          > -->
+          <!-- <input type="submit" class="sb-btn" /> -->
+        </div>
+      </form>
+    </section>
+    <div class="done">Done</div>
+    <footer class="copyright_div">
+      <a href="https://github.com/spreadsheets600" class="copyright"
+        >Made By SOHAM & Leaf With ❤ | &copy; 2024
+      </a>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

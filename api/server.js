@@ -46,7 +46,7 @@ app.get(
 
 app.get("/dashboard", (req, res) => {
   if (!req.isAuthenticated()) return res.redirect("/auth/discord");
-  res.send(`Hello ${req.user.username}, welcome to your dashboard!`);
+  res.send(`Hello ${req.user.username}, welcome To The Dashboard! Which SOHAM IS Too Lazy To Build`);
 });
 
 module.exports = app;
